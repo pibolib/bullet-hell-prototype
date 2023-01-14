@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1rf42ot26o1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxw2p"]
+size = Vector2(1, 1)
+
+[node name="Bullet" type="Node2D"]
+
+[node name="Visual" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 1, 0)
+width = 1.0
+
+[node name="EnemyBulletVoid" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBulletVoid"]
+position = Vector2(0.5, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_uxw2p")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(10, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
