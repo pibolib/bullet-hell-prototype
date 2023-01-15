@@ -12,8 +12,6 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("1_7b386")]
 position = Vector2(140, 284)
 
-[node name="IngameUI" parent="." instance=ExtResource("4_um8oa")]
-
 [node name="Enemy" parent="." instance=ExtResource("3_juhee")]
 position = Vector2(58, 75)
 
@@ -28,3 +26,12 @@ position = Vector2(236, 111)
 
 [node name="Enemy5" parent="." instance=ExtResource("3_juhee")]
 position = Vector2(154, 97)
+
+[node name="IngameCamera" type="Camera2D" parent="."]
+anchor_mode = 0
+ignore_rotation = false
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="IngameUI" parent="CanvasLayer" instance=ExtResource("4_um8oa")]

@@ -13,11 +13,14 @@ var speed_multiplier: float = 1
 var velocity: Vector2 = Vector2(0,0)
 var stats: Dictionary
 var invulnerable: bool = false
+var game: Node
 
 func _ready():
+	game = get_parent()
 	self.connect("player_hit",Global._on_player_hit)
 	self.connect("player_hit",take_damage)
 	self.connect("bullet_shot",Global._on_player_fire)
+	self.connect("bullet_shot",game._on_player_fire)
 	self.connect("bullet_reload",Global._on_player_reload)
 	self.connect("bullet_grazed",Global._on_player_graze)
 	stats = Global.player_stats

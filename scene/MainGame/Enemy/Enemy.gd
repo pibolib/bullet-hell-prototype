@@ -10,10 +10,12 @@ enum Status {
 var death_explosion: PackedScene = preload("res://scene/FX/EnemyDeathExplosion.tscn")
 var patterns: Array = [preload("res://scene/MainGame/EnemyPattern/EnemyPatternBasicShot.tscn")]
 var state = Status.INIT
+var game: Node
 @export var hp: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	game = get_parent()
 	$StateTimer.start(2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +23,7 @@ func _process(delta):
 	if hp <= 0:
 		var new_death_anim = death_explosion.instantiate()
 		new_death_anim.position = position
+		game.add_camera_shake(4)
 		get_parent().add_child(new_death_anim)
 		queue_free()
 	$Model.set_aim_dir(get_angle_to_player(position))
