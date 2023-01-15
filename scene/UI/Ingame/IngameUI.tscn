@@ -39,3 +39,7 @@ text = "Score: 0"
 [node name="HPIndicator" type="Label" parent="TopLeft"]
 layout_mode = 2
 text = "HP: 3"
+
+[node name="Bullets" type="Label" parent="TopLeft"]
+layout_mode = 2
+text = "HP: 3"

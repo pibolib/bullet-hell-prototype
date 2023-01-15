@@ -3,21 +3,21 @@
 [ext_resource type="Script" path="res://scene/FX/EnemyDeathExplosion.gd" id="1_mox75"]
 [ext_resource type="Texture2D" uid="uid://dr10l3jhw6mxf" path="res://assets/fx_death_explosion_circle.png" id="2_fwglx"]
 
-[sub_resource type="Gradient" id="Gradient_l4d13"]
+[sub_resource type="Gradient" id="Gradient_i1qv8"]
 offsets = PackedFloat32Array(0, 0.0606061, 0.126263, 0.328283, 0.59596, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1, 1, 0.639216, 0.0745098, 1, 0.843137, 0.290196, 0, 1, 0.10748, 0.10748, 0.10748, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8x0fp"]
-gradient = SubResource("Gradient_l4d13")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_k6dpq"]
+gradient = SubResource("Gradient_i1qv8")
 
-[sub_resource type="Curve" id="Curve_2s124"]
+[sub_resource type="Curve" id="Curve_5h664"]
 _data = [Vector2(0, 1), 0.0, 1.15778, 0, 0, Vector2(1, 0.318182), -2.92993, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_4gneu"]
-curve = SubResource("Curve_2s124")
+[sub_resource type="CurveTexture" id="CurveTexture_m2rpf"]
+curve = SubResource("Curve_5h664")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0pv07"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_creh8"]
 lifetime_randomness = 0.3
 particle_flag_disable_z = true
 spread = 180.0
@@ -29,16 +29,16 @@ orbit_velocity_max = 0.0
 damping_min = 62.3
 damping_max = 100.0
 scale_min = 0.8
-scale_curve = SubResource("CurveTexture_4gneu")
-color_ramp = SubResource("GradientTexture1D_8x0fp")
+scale_curve = SubResource("CurveTexture_m2rpf")
+color_ramp = SubResource("GradientTexture1D_k6dpq")
 
-[sub_resource type="Gradient" id="Gradient_qjd31"]
+[sub_resource type="Gradient" id="Gradient_kqu5t"]
 colors = PackedColorArray(1, 1, 1, 1, 0.188235, 0.188235, 0.188235, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_g63ap"]
-gradient = SubResource("Gradient_qjd31")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmett"]
+gradient = SubResource("Gradient_kqu5t")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c15or"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rbjss"]
 lifetime_randomness = 0.28
 particle_flag_disable_z = true
 spread = 180.0
@@ -49,9 +49,9 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 damping_min = 59.84
 damping_max = 60.66
-color_ramp = SubResource("GradientTexture1D_g63ap")
+color_ramp = SubResource("GradientTexture1D_qmett")
 
-[sub_resource type="Animation" id="Animation_la2n4"]
+[sub_resource type="Animation" id="Animation_4kqyf"]
 resource_name = "Life"
 length = 2.0
 tracks/0/type = "value"
@@ -93,7 +93,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ibwvg"]
+[sub_resource type="Animation" id="Animation_cma3x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -120,10 +120,10 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtugy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3icl"]
 _data = {
-"Life": SubResource("Animation_la2n4"),
-"RESET": SubResource("Animation_ibwvg")
+"Life": SubResource("Animation_4kqyf"),
+"RESET": SubResource("Animation_cma3x")
 }
 
 [node name="DeathExplosion" type="Node2D"]
@@ -134,7 +134,7 @@ script = ExtResource("1_mox75")
 scale = Vector2(0.6, 0.6)
 emitting = false
 amount = 12
-process_material = SubResource("ParticleProcessMaterial_0pv07")
+process_material = SubResource("ParticleProcessMaterial_creh8")
 texture = ExtResource("2_fwglx")
 lifetime = 1.5
 one_shot = true
@@ -144,7 +144,7 @@ randomness = 0.87
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 40
-process_material = SubResource("ParticleProcessMaterial_c15or")
+process_material = SubResource("ParticleProcessMaterial_rbjss")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
@@ -152,5 +152,5 @@ fixed_fps = 60
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jtugy")
+"": SubResource("AnimationLibrary_t3icl")
 }
