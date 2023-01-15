@@ -93,11 +93,10 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBulletVoid"]
 position = Vector2(0.5, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uxw2p")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 0)
+target_position = Vector2(1000, 0)
 collision_mask = 4
 hit_from_inside = true
 collide_with_areas = true

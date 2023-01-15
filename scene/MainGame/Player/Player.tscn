@@ -48,5 +48,8 @@ libraries = {
 "": SubResource("AnimationLibrary_uqcfx")
 }
 
+[node name="Indicator" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(3, -18, 0, -23, -3, -18, 0, -32)
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]
