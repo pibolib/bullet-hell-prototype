@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	Global.connect("player_hp_changed",update_hp)
 	Global.connect("player_bullets_changed",update_bullets)
+	Global.connect("score_changed",update_score)
 
 func update_score(score: int) -> void:
 	$TopLeft/Score.text = "Score: "+str(score)

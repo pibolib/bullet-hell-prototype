@@ -2,6 +2,8 @@ extends Node2D
 
 signal player_hit
 signal bullet_shot
+signal bullet_reload
+signal bullet_grazed
 
 const FRICTION_RATE: float = 20
 const PLAYER_SPEED: float = 75
@@ -16,6 +18,9 @@ func _ready():
 	self.connect("player_hit",Global._on_player_hit)
 	self.connect("player_hit",take_damage)
 	self.connect("bullet_shot",Global._on_player_fire)
+	self.connect("bullet_reload",Global._on_player_reload)
+	self.connect("bullet_grazed",Global._on_player_graze)
+	stats = Global.player_stats
 
 func _process(delta):
 	if Input.is_action_pressed("ingame_move_down"):
@@ -26,12 +31,17 @@ func _process(delta):
 		velocity.x = PLAYER_SPEED * speed_multiplier
 	elif Input.is_action_pressed("ingame_move_left"): 
 		velocity.x = -PLAYER_SPEED * speed_multiplier
-	if Input.is_action_just_pressed("ingame_fire"):
+	if Input.is_action_just_pressed("ingame_fire") and stats.Bullets > 0:
 		var new_bullet = bullet.instantiate()
 		new_bullet.start_point = position
 		new_bullet.angle = Global.angle+PI
 		get_parent().add_child(new_bullet)
 		emit_signal("bullet_shot")
+		$Reload.stop()
+	if Input.is_action_just_pressed("ingame_focus"):
+		$Reload.start(0.5)
+	if Input.is_action_just_released("ingame_focus"):
+		$Reload.stop()
 	speed_multiplier = 1 - 0.5*float(Input.is_action_pressed("ingame_focus"))
 	position += velocity * delta
 	Global.player_pos = position
@@ -41,7 +51,10 @@ func _process(delta):
 	$Indicator.rotation = -Global.angle
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if !invulnerable: 
+	if area.name == "Graze":
+		emit_signal("bullet_grazed")
+		area.queue_free()
+	elif !invulnerable: 
 		emit_signal("player_hit")
 
 func take_damage() -> void:
@@ -51,3 +64,8 @@ func take_damage() -> void:
 
 func _on_invulnerability_timeout() -> void:
 	invulnerable = false
+
+func _on_reload_timeout():
+	if stats.Bullets < 6:
+		emit_signal("bullet_reload")
+		$Reload.start(0.5)
