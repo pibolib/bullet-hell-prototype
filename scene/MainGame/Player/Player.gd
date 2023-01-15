@@ -26,10 +26,13 @@ func _process(delta):
 		velocity.x = -PLAYER_SPEED * speed_multiplier
 	speed_multiplier = 1 - 0.5*float(Input.is_action_pressed("ingame_focus"))
 	position += velocity * delta
+	Global.player_pos = position
 	velocity = lerp(velocity,Vector2(0,0),FRICTION_RATE*delta)
+	position.x = clamp(position.x,0,300)
+	position.y = clamp(position.y,0,350)
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.name == "EnemyHurtbox" and !invulnerable: 
+	if !invulnerable: 
 		emit_signal("player_hit")
 
 func take_damage() -> void:

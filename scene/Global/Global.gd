@@ -6,3 +6,4 @@ var player_stats_default: Dictionary = {
 }
 
 var player_stats: Dictionary = player_stats_default.duplicate(true)
+var player_pos: Vector2 = Vector2(0,0)
