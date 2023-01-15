@@ -9,12 +9,24 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Area2D",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/Enemy.gd"
+}, {
+"base": "Area2D",
+"class": &"EnemyBullet",
+"language": &"GDScript",
+"path": "res://scene/MainGame/EnemyBullet/EnemyBullet.gd"
+}, {
 "base": "Node2D",
 "class": &"EnemyPattern",
 "language": &"GDScript",
 "path": "res://scene/MainGame/EnemyPattern/EnemyPattern.gd"
 }]
 _global_script_class_icons={
+"Enemy": "",
+"EnemyBullet": "",
 "EnemyPattern": ""
 }
 

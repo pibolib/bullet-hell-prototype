@@ -12,58 +12,19 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("1_7b386")]
 position = Vector2(140, 284)
 
+[node name="IngameUI" parent="." instance=ExtResource("4_um8oa")]
+
 [node name="Enemy" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(66, 96)
+position = Vector2(58, 75)
 
 [node name="Enemy2" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(139, 71)
+position = Vector2(110, 94)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(225, 101)
+position = Vector2(190, 73)
 
 [node name="Enemy4" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(68, 137)
+position = Vector2(236, 111)
 
 [node name="Enemy5" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(141, 112)
-
-[node name="Enemy6" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(227, 142)
-
-[node name="Enemy7" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(77, 176)
-
-[node name="Enemy8" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(150, 151)
-
-[node name="Enemy9" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(236, 181)
-
-[node name="Enemy10" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(91, 218)
-
-[node name="Enemy11" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(164, 193)
-
-[node name="Enemy12" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(250, 223)
-
-[node name="Enemy13" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(102, 258)
-
-[node name="Enemy14" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(175, 233)
-
-[node name="Enemy15" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(261, 263)
-
-[node name="Enemy16" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(44, 193)
-
-[node name="Enemy17" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(117, 168)
-
-[node name="Enemy18" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(203, 198)
-
-[node name="IngameUI" parent="." instance=ExtResource("4_um8oa")]
+position = Vector2(154, 97)
