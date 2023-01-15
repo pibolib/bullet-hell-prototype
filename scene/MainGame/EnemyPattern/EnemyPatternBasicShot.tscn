@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ivs6ievg5db5"]
+
+[ext_resource type="Script" path="res://scene/MainGame/EnemyPattern/EnemyPatternBasicShot.gd" id="2_8pwou"]
+
+[node name="EnemyPattern" type="Node2D"]
+script = ExtResource("2_8pwou")
