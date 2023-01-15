@@ -16,6 +16,7 @@ func _ready():
 	self.connect("player_hit",Global._on_player_hit)
 	self.connect("player_hit",take_damage)
 	self.connect("bullet_shot",Global._on_player_fire)
+	stats = Global.player_stats
 
 func _process(delta):
 	if Input.is_action_pressed("ingame_move_down"):
@@ -26,7 +27,7 @@ func _process(delta):
 		velocity.x = PLAYER_SPEED * speed_multiplier
 	elif Input.is_action_pressed("ingame_move_left"): 
 		velocity.x = -PLAYER_SPEED * speed_multiplier
-	if Input.is_action_just_pressed("ingame_fire"):
+	if Input.is_action_just_pressed("ingame_fire") and stats.Bullets > 0:
 		var new_bullet = bullet.instantiate()
 		new_bullet.start_point = position
 		new_bullet.angle = Global.angle+PI

@@ -29,6 +29,7 @@ func _process(delta):
 	var viewport_position: Vector2 = get_viewport().get_visible_rect().size/2
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
 	var mouse_delta: float = mouse_position.x - viewport_position.x 
+	print(mouse_delta/mouse_sensitivity)
 	get_viewport().warp_mouse(get_viewport().get_visible_rect().size/2) 
 	angle -= mouse_delta / mouse_sensitivity
 	angle = clamp(angle, -PI/2, PI/2)
