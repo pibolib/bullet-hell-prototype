@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node2D",
+"class": &"EnemyPattern",
+"language": &"GDScript",
+"path": "res://scene/MainGame/EnemyPattern/EnemyPattern.gd"
+}]
+_global_script_class_icons={
+"EnemyPattern": ""
+}
+
 [application]
 
 config/name="Hack 16-2"
