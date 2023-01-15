@@ -2,10 +2,12 @@ extends Node
 
 signal player_hp_changed
 signal score_changed
+signal player_bullets_changed
 
 var player_stats_default: Dictionary = {
 	"HP": 3,
 	"Score": 0,
+	"Bullets": 6,
 }
 
 var player_stats: Dictionary = player_stats_default.duplicate(true)
@@ -34,3 +36,7 @@ func _process(delta):
 func _on_player_hit():
 	player_stats.HP -= 1
 	emit_signal("player_hp_changed",player_stats.HP)
+
+func _on_player_fire():
+	player_stats.Bullets -= 1
+	emit_signal("player_bullets_changed",player_stats.Bullets)
