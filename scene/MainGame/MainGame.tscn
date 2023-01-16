@@ -66,51 +66,37 @@ position = Vector2(1, 754)
 
 [node name="Enemy" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(-17, 96)
-move_downwards = true
 
 [node name="Enemy2" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(-17, 96)
-move_downwards = true
 spawn_delay = 2.0
 
 [node name="Enemy3" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(-17, 96)
-move_downwards = true
 spawn_delay = 3.0
 
 [node name="Enemy4" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(-17, 96)
-move_downwards = true
 spawn_delay = 4.0
 
 [node name="Enemy8" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(315, 130)
 move_direction = 1
-move_downwards = true
 spawn_delay = 5.0
 
 [node name="Enemy9" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(315, 130)
 move_direction = 1
-move_downwards = true
 spawn_delay = 6.0
 
 [node name="Enemy10" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(315, 130)
 move_direction = 1
-move_downwards = true
 spawn_delay = 7.0
 
 [node name="Enemy11" parent="Wave2" instance=ExtResource("5_3c2pe")]
 position = Vector2(315, 130)
 move_direction = 1
-move_downwards = true
-spawn_delay = 8.0
-
-[node name="Enemy12" parent="Wave2" instance=ExtResource("5_3c2pe")]
-position = Vector2(315, 130)
-move_direction = 1
-move_downwards = true
 spawn_delay = 8.0
 
 [node name="WaveTimer" type="Timer" parent="."]
