@@ -12,9 +12,9 @@ signal enemy_died
 
 var death_explosion: PackedScene = preload("res://scene/FX/EnemyDeathExplosion.tscn")
 var patterns: Array = [preload("res://scene/MainGame/EnemyPattern/EnemyPatternBasicShot.tscn")]
-var state = Status.INIT
+var state = Status.PRE_INIT
 var game: Node
-@export var spawn_delay = 0
+@export_range(1,11,0.25,"suffix: seconds") var spawn_delay: float = 1
 @export var hp: int = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +35,9 @@ func _process(delta):
 		queue_free()
 	if state != Status.PRE_INIT:
 		$Model.set_aim_dir(get_angle_to_player(position))
+		if position.x < -100 or position.x > 400 or position.y > 450 or position.y < -100:
+			emit_signal("enemy_died")
+			queue_free()
 
 func take_damage():
 	hp -= 1

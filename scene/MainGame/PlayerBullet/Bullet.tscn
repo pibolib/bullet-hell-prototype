@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scene/MainGame/PlayerBullet/Bullet.gd" id="1_lykkq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrdd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aewt4"]
 size = Vector2(1, 1)
 
-[sub_resource type="Animation" id="Animation_73v6b"]
+[sub_resource type="Animation" id="Animation_qotb1"]
 resource_name = "Life"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,7 +46,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_itd7s"]
+[sub_resource type="Animation" id="Animation_xlh2q"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -73,10 +73,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uphlu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3nbn"]
 _data = {
-"Life": SubResource("Animation_73v6b"),
-"RESET": SubResource("Animation_itd7s")
+"Life": SubResource("Animation_qotb1"),
+"RESET": SubResource("Animation_xlh2q")
 }
 
 [node name="Bullet" type="Node2D"]
@@ -93,7 +93,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBulletVoid"]
 position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_xmrdd")
+shape = SubResource("RectangleShape2D_aewt4")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(1000, 0)
@@ -104,5 +104,5 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_uphlu")
+"": SubResource("AnimationLibrary_f3nbn")
 }
