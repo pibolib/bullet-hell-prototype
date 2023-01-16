@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbankv6chbgtq"]
+[gd_scene load_steps=6 format=3 uid="uid://bbankv6chbgtq"]
 
 [ext_resource type="PackedScene" uid="uid://yidhqdd4gy23" path="res://scene/MainGame/Player/Player.tscn" id="1_7b386"]
 [ext_resource type="Script" path="res://scene/MainGame/MainGame.gd" id="1_7ctrp"]
-[ext_resource type="PackedScene" uid="uid://cm6yy3rec8oqw" path="res://scene/MainGame/Enemy/Enemy.tscn" id="3_juhee"]
 [ext_resource type="PackedScene" uid="uid://crw72237c1kfw" path="res://scene/UI/Ingame/IngameUI.tscn" id="4_um8oa"]
+[ext_resource type="PackedScene" uid="uid://bqni3347iibgv" path="res://scene/MainGame/Wave/Wave.tscn" id="4_yk3dx"]
+[ext_resource type="PackedScene" uid="uid://cm6yy3rec8oqw" path="res://scene/MainGame/Enemy/Enemy.tscn" id="5_855wy"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_7ctrp")
@@ -12,26 +13,62 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("1_7b386")]
 position = Vector2(140, 284)
 
-[node name="Enemy" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(58, 75)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(110, 94)
-
-[node name="Enemy3" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(190, 73)
-
-[node name="Enemy4" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(236, 111)
-
-[node name="Enemy5" parent="." instance=ExtResource("3_juhee")]
-position = Vector2(154, 97)
-
 [node name="IngameCamera" type="Camera2D" parent="."]
 anchor_mode = 0
 ignore_rotation = false
 current = true
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="IngameUI" parent="CanvasLayer" instance=ExtResource("4_um8oa")]
+metadata/_edit_lock_ = true
+
+[node name="Wave0" parent="." instance=ExtResource("4_yk3dx")]
+
+[node name="Wave1" parent="." instance=ExtResource("4_yk3dx")]
+position = Vector2(1, 375)
+
+[node name="Enemy" parent="Wave1" instance=ExtResource("5_855wy")]
+position = Vector2(37, 67)
+spawn_delay = 3
+
+[node name="Enemy2" parent="Wave1" instance=ExtResource("5_855wy")]
+position = Vector2(107, 55)
+
+[node name="Enemy3" parent="Wave1" instance=ExtResource("5_855wy")]
+position = Vector2(199, 57)
+
+[node name="Enemy4" parent="Wave1" instance=ExtResource("5_855wy")]
+position = Vector2(252, 111)
+
+[node name="Wave2" parent="." instance=ExtResource("4_yk3dx")]
+position = Vector2(1, 754)
+
+[node name="Enemy" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(185, 73)
+
+[node name="Enemy2" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(118, 57)
+
+[node name="Enemy3" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(168, 44)
+
+[node name="Enemy4" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(80, 80)
+
+[node name="Enemy5" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(58, 109)
+
+[node name="Enemy6" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(129, 91)
+
+[node name="Enemy7" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(225, 76)
+
+[node name="Enemy8" parent="Wave2" instance=ExtResource("5_855wy")]
+position = Vector2(269, 93)
+
+[node name="WaveTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

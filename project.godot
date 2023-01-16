@@ -23,11 +23,17 @@ _global_script_classes=[{
 "class": &"EnemyPattern",
 "language": &"GDScript",
 "path": "res://scene/MainGame/EnemyPattern/EnemyPattern.gd"
+}, {
+"base": "Node2D",
+"class": &"Wave",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Wave/Wave.gd"
 }]
 _global_script_class_icons={
 "Enemy": "",
 "EnemyBullet": "",
-"EnemyPattern": ""
+"EnemyPattern": "",
+"Wave": ""
 }
 
 [application]

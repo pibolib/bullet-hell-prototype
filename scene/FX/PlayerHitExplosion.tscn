@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scene/FX/PlayerHitExplosion.gd" id="1_5t8be"]
 [ext_resource type="Texture2D" uid="uid://b8t27xw2684ut" path="res://assets/fx_hit_explosion_circle.png" id="1_jcd1h"]
 
-[sub_resource type="Animation" id="Animation_0pjtt"]
+[sub_resource type="Animation" id="Animation_qgfhq"]
 resource_name = "Life"
 length = 2.0
 step = 0.05
@@ -82,7 +82,7 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_knuo1"]
+[sub_resource type="Animation" id="Animation_au4ch"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -145,26 +145,26 @@ tracks/4/keys = {
 "values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mudho"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mg41l"]
 _data = {
-"Life": SubResource("Animation_0pjtt"),
-"RESET": SubResource("Animation_knuo1")
+"Life": SubResource("Animation_qgfhq"),
+"RESET": SubResource("Animation_au4ch")
 }
 
-[sub_resource type="Gradient" id="Gradient_igu5e"]
+[sub_resource type="Gradient" id="Gradient_f3xgu"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_x62gc"]
-gradient = SubResource("Gradient_igu5e")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a6c3e"]
+gradient = SubResource("Gradient_f3xgu")
 
-[sub_resource type="Curve" id="Curve_ayx4a"]
+[sub_resource type="Curve" id="Curve_5egfv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_cqmol"]
-curve = SubResource("Curve_ayx4a")
+[sub_resource type="CurveTexture" id="CurveTexture_v2f8p"]
+curve = SubResource("Curve_5egfv")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqiu4"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt5w0"]
 particle_flag_disable_z = true
 spread = 180.0
 gravity = Vector3(0, 0, 0)
@@ -176,15 +176,15 @@ damping_min = 46.71
 damping_max = 47.37
 scale_min = 0.5
 scale_max = 0.7
-scale_curve = SubResource("CurveTexture_cqmol")
-color_ramp = SubResource("GradientTexture1D_x62gc")
+scale_curve = SubResource("CurveTexture_v2f8p")
+color_ramp = SubResource("GradientTexture1D_a6c3e")
 
 [node name="HitExplosion" type="Node2D"]
 script = ExtResource("1_5t8be")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mudho")
+"": SubResource("AnimationLibrary_mg41l")
 }
 
 [node name="ExplosionX" type="Sprite2D" parent="."]
@@ -198,7 +198,7 @@ texture = ExtResource("1_jcd1h")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 16
-process_material = SubResource("ParticleProcessMaterial_jqiu4")
+process_material = SubResource("ParticleProcessMaterial_pt5w0")
 texture = ExtResource("1_jcd1h")
 one_shot = true
 explosiveness = 1.0
