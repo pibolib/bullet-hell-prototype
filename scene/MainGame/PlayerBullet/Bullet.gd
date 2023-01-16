@@ -16,8 +16,9 @@ func _ready():
 	$RayCast2D.force_raycast_update()
 	var collider = $RayCast2D.get_collider()
 	if collider != null:
-		collider.take_damage()
-		$Visual.points = [start_point,$RayCast2D.get_collision_point()]
-		var new_effect = hit_explosion.instantiate()
-		new_effect.position = $RayCast2D.get_collision_point()
-		get_parent().add_child(new_effect)
+		if collider.state != 0:
+			collider.take_damage()
+			$Visual.points = [start_point,$RayCast2D.get_collision_point()]
+			var new_effect = hit_explosion.instantiate()
+			new_effect.position = $RayCast2D.get_collision_point()
+			get_parent().add_child(new_effect)

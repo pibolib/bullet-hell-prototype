@@ -17,7 +17,7 @@ func set_anim(anim_name: String) -> void:
 func set_aim_dir(dir: float) -> void:
 	aim_dir = dir
 
-func dynamic_anim(anim: String, time: float) -> void:
+func dynamic_anim(anim: String, _time: float) -> void:
 	match anim:
 		"Attack":
 			$Torso/GunAim.rotation = aim_dir - PI/2

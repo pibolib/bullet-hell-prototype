@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqni3347iibgv"]
+
+[ext_resource type="Script" path="res://scene/MainGame/Wave/Wave.gd" id="1_dsi7o"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_dsi7o")
+metadata/_edit_lock_ = true
+
+[node name="WavePreview" type="Polygon2D" parent="."]
+invert_enabled = true
+invert_border = 1.0
+polygon = PackedVector2Array(0, 0, 300, 0, 300, 350, 0, 350)

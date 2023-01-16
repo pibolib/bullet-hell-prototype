@@ -36,7 +36,7 @@ func _process(delta):
 		velocity.x = -PLAYER_SPEED * speed_multiplier
 	if Input.is_action_just_pressed("ingame_fire") and stats.Bullets > 0:
 		var new_bullet = bullet.instantiate()
-		new_bullet.start_point = position
+		new_bullet.start_point = $Sprite/Arm1/Hand1/Gun/BulletSpawn.global_position
 		new_bullet.angle = Global.angle+PI
 		get_parent().add_child(new_bullet)
 		emit_signal("bullet_shot")
@@ -52,6 +52,7 @@ func _process(delta):
 	position.x = clamp(position.x,0,300)
 	position.y = clamp(position.y,0,350)
 	$Indicator.rotation = -Global.angle
+	$Sprite/Arm1.rotation = -Global.angle
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Graze":

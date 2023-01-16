@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://c7jexk31a040q" path="res://assets/enemy_bullet_small.png" id="1_74sc0"]
 [ext_resource type="Script" path="res://scene/MainGame/EnemyBullet/EnemyBullet.gd" id="1_gvp5n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xnnfg"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbnt3"]
 radius = 2.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ojhwi"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vuea"]
 radius = 12.0
 
 [node name="EnemyBullet" type="Area2D"]
@@ -19,7 +19,7 @@ script = ExtResource("1_gvp5n")
 texture = ExtResource("1_74sc0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xnnfg")
+shape = SubResource("CircleShape2D_dbnt3")
 one_way_collision_margin = 0.0
 
 [node name="Graze" type="Area2D" parent="."]
@@ -27,4 +27,4 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Graze"]
-shape = SubResource("CircleShape2D_ojhwi")
+shape = SubResource("CircleShape2D_1vuea")
