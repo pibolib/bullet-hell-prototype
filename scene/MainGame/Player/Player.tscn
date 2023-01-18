@@ -35,7 +35,7 @@ script = ExtResource("1_2kmp1")
 
 [node name="Hair" type="Sprite2D" parent="Sprite"]
 z_index = 10
-position = Vector2(0, -11)
+position = Vector2(0, -12)
 texture = ExtResource("2_48cg2")
 offset = Vector2(0, 4)
 region_enabled = true
@@ -43,7 +43,7 @@ region_rect = Rect2(8, 0, 9, 12)
 
 [node name="Head" type="Sprite2D" parent="Sprite"]
 z_index = 4
-position = Vector2(0, -9)
+position = Vector2(0, -10)
 texture = ExtResource("2_48cg2")
 region_enabled = true
 region_rect = Rect2(35, 36, 7, 8)
@@ -62,7 +62,7 @@ position = Vector2(0, -1)
 texture = ExtResource("2_48cg2")
 offset = Vector2(0, 0.5)
 region_enabled = true
-region_rect = Rect2(5, 16, 15, 12)
+region_rect = Rect2(5, 17, 15, 11)
 
 [node name="Shorts" type="Sprite2D" parent="Sprite"]
 z_index = 9
