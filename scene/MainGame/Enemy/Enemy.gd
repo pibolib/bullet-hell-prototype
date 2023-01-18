@@ -6,7 +6,7 @@ enum Status {
 	PRE_INIT,
 	INIT,
 	ATTACK,
-	REPEL
+	LEAVE
 }
 
 signal enemy_died
@@ -17,6 +17,7 @@ var state = Status.PRE_INIT
 var game: Node
 var score: float = 300
 var current_attack = 0
+var despawn_border = 100
 @export_range(1,11,0.25,"suffix: seconds") var spawn_delay: float = 1
 @export var hp: int = 1
 @export var patterns_overwrite: Array[PackedScene] = []
@@ -41,7 +42,7 @@ func _process(_delta):
 		queue_free()
 	if state != Status.PRE_INIT:
 		$Model.set_aim_dir(get_angle_to_player(position))
-		if position.x < -100 or position.x > 400 or position.y > 450 or position.y < -100:
+		if position.x < -despawn_border or position.x > 300+despawn_border or position.y > 350+despawn_border or position.y < -despawn_border:
 			emit_signal("enemy_died")
 			queue_free()
 

@@ -12,7 +12,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super(delta)
-	position += velocity * delta
+	if state != Status.PRE_INIT:
+		position += velocity * delta
 
 func handle_state(current_state: Status) -> void:
 	super(current_state)

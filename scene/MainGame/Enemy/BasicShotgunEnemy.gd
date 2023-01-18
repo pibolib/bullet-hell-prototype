@@ -14,27 +14,28 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super(delta)
-	position += velocity * delta
-	if repel:
-		velocity += Vector2.from_angle(Global.player_pos.angle_to_point(position)) * delta * 80
+	if state != Status.PRE_INIT:
+		position += velocity * delta
+		if repel:
+			velocity += Vector2.from_angle(Global.player_pos.angle_to_point(position)) * delta * 80
 
 func handle_state(current_state: Status) -> void:
 	super(current_state)
 	match current_state:
 		Status.INIT:
 			init_state(Status.ATTACK)
-		Status.REPEL:
+		Status.LEAVE:
 			create_pattern(0)
 func init_state(new_state: Status) -> void:
 	super(new_state)
 	match state:
-		Status.REPEL:
+		Status.LEAVE:
 			$Model.set_anim("Idle")
 		Status.INIT:
 			$Model.set_anim("Attack") # to be replaced with "ShortAttack" on shotgun model
 		Status.ATTACK:
 			$StateTimer.start(0.05)
-			init_state(Status.REPEL)
+			init_state(Status.LEAVE)
 
 func init() -> void:
 	velocity = Vector2.from_angle(position.angle_to_point(Global.player_pos)) * charge_speed
