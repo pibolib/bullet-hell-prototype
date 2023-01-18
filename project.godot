@@ -14,6 +14,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scene/MainGame/Enemy/BasicRifleEnemy.gd"
 }, {
+"base": "EnemyModel",
+"class": &"BasicRifleEnemyModel",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/EnemyModel/BasicRifleEnemyModel.gd"
+}, {
 "base": "Enemy",
 "class": &"BasicShotgunEnemy",
 "language": &"GDScript",
@@ -30,6 +35,11 @@ _global_script_classes=[{
 "path": "res://scene/MainGame/EnemyBullet/EnemyBullet.gd"
 }, {
 "base": "Node2D",
+"class": &"EnemyModel",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/EnemyModel.gd"
+}, {
+"base": "Node2D",
 "class": &"EnemyPattern",
 "language": &"GDScript",
 "path": "res://scene/MainGame/EnemyPattern/EnemyPattern.gd"
@@ -41,9 +51,11 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "BasicRifleEnemy": "",
+"BasicRifleEnemyModel": "",
 "BasicShotgunEnemy": "",
 "Enemy": "",
 "EnemyBullet": "",
+"EnemyModel": "",
 "EnemyPattern": "",
 "Wave": ""
 }

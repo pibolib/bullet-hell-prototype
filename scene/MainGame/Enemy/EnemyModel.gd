@@ -1,13 +1,19 @@
 extends Node2D
+class_name EnemyModel
 
 var aim_dir: float = 0
 var current_anim = ""
-# Called when the node enters the scene tree for the first time.
+var global_pos_last = Vector2(0,0)
+var pos_delta = Vector2(0,0)
+
 func _ready():
 	set_anim("Idle")
+	global_pos_last = global_position
 	$AnimationPlayer.advance(global_position.x/300)
 
 func _process(_delta):
+	pos_delta = global_position-global_pos_last
+	global_pos_last = global_position
 	dynamic_anim(current_anim, $AnimationPlayer.current_animation_position)
 
 func set_anim(anim_name: String) -> void:
