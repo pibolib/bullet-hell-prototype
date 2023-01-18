@@ -15,9 +15,11 @@ var death_explosion: PackedScene = preload("res://scene/FX/EnemyDeathExplosion.t
 var patterns: Array = [preload("res://scene/MainGame/EnemyPattern/EnemyPatternBasicShot.tscn")]
 var state = Status.PRE_INIT
 var game: Node
-var score: float = 300
+var score: int = 300
 var current_attack = 0
 var despawn_border = 100
+@export var first_idle = 1.5
+var first = true
 @export_range(1,11,0.25,"suffix: seconds") var spawn_delay: float = 1
 @export var hp: int = 1
 @export var patterns_overwrite: Array[PackedScene] = []
