@@ -9,6 +9,16 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Enemy",
+"class": &"BasicRifleEnemy",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/BasicRifleEnemy.gd"
+}, {
+"base": "Enemy",
+"class": &"BasicShotgunEnemy",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/BasicShotgunEnemy.gd"
+}, {
 "base": "Area2D",
 "class": &"Enemy",
 "language": &"GDScript",
@@ -30,6 +40,8 @@ _global_script_classes=[{
 "path": "res://scene/MainGame/Wave/Wave.gd"
 }]
 _global_script_class_icons={
+"BasicRifleEnemy": "",
+"BasicShotgunEnemy": "",
 "Enemy": "",
 "EnemyBullet": "",
 "EnemyPattern": "",

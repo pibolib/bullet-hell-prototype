@@ -19,7 +19,7 @@ var maximized: bool = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ingame_maximize"):
 		if maximized:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
