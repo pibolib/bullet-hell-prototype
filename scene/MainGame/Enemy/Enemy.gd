@@ -39,6 +39,7 @@ func _process(_delta):
 		game.add_camera_shake(4)
 		get_parent().add_child(new_death_anim)
 		emit_signal("enemy_died")
+		Global._on_score_change(score)
 		queue_free()
 	if state != Status.PRE_INIT:
 		$Model.set_aim_dir(get_angle_to_player(position))
