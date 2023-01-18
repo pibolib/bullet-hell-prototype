@@ -15,3 +15,9 @@ func _process(delta):
 		queue_free()
 	if position.y < -50 or position.y > 400:
 		queue_free()
+
+
+func _on_area_entered(area):
+	if area.name == "EnemyBulletVoid":
+		Global._on_score_change(10)
+		queue_free()
