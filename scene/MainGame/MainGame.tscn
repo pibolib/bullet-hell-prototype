@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbankv6chbgtq"]
+[gd_scene load_steps=8 format=3 uid="uid://bbankv6chbgtq"]
 
 [ext_resource type="PackedScene" uid="uid://yidhqdd4gy23" path="res://scene/MainGame/Player/Player.tscn" id="1_7b386"]
 [ext_resource type="Script" path="res://scene/MainGame/MainGame.gd" id="1_7ctrp"]
 [ext_resource type="PackedScene" uid="uid://crw72237c1kfw" path="res://scene/UI/Ingame/IngameUI.tscn" id="4_um8oa"]
 [ext_resource type="PackedScene" uid="uid://bqni3347iibgv" path="res://scene/MainGame/Wave/Wave.tscn" id="4_yk3dx"]
 [ext_resource type="PackedScene" uid="uid://bja48msye6efj" path="res://scene/MainGame/Enemy/BasicRifleEnemy.tscn" id="5_3c2pe"]
+[ext_resource type="PackedScene" uid="uid://c0sid4hykutks" path="res://scene/MainGame/Enemy/BasicShotgunEnemy.tscn" id="6_4qngn"]
+[ext_resource type="PackedScene" uid="uid://dp7tcnjn568t8" path="res://scene/MainGame/Enemy/BasicStationaryEnemy.tscn" id="6_myhfp"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_7ctrp")
@@ -29,36 +31,41 @@ metadata/_edit_lock_ = true
 [node name="Wave1" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 375)
 
-[node name="Enemy" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(-19, 80)
-move_downwards = true
+[node name="Enemy4" parent="Wave1" instance=ExtResource("6_4qngn")]
+position = Vector2(143, -13)
 
-[node name="Enemy2" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(-19, 111)
-move_downwards = true
+[node name="Enemy5" parent="Wave1" instance=ExtResource("6_4qngn")]
+position = Vector2(171, -14)
+charge_speed = 70.0
+spawn_delay = 1.5
+
+[node name="Enemy7" parent="Wave1" instance=ExtResource("6_4qngn")]
+position = Vector2(200, -14)
+charge_speed = 80.0
 spawn_delay = 2.0
 
-[node name="Enemy3" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(-20, 143)
-move_downwards = true
-spawn_delay = 3.0
-
-[node name="Enemy6" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(316, 103)
-move_direction = 1
-move_downwards = true
+[node name="Enemy8" parent="Wave1" instance=ExtResource("6_4qngn")]
+position = Vector2(85, -14)
+charge_speed = 80.0
 spawn_delay = 2.0
 
-[node name="Enemy7" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(316, 134)
-move_direction = 1
-move_downwards = true
-spawn_delay = 3.0
+[node name="Enemy6" parent="Wave1" instance=ExtResource("6_4qngn")]
+position = Vector2(114, -14)
+charge_speed = 70.0
+spawn_delay = 1.5
 
-[node name="Enemy8" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(315, 166)
-move_direction = 1
-move_downwards = true
+[node name="Enemy" parent="Wave1" instance=ExtResource("6_myhfp")]
+position = Vector2(31, 68)
+entry_dir = 2
+spawn_delay = 4.0
+
+[node name="Enemy2" parent="Wave1" instance=ExtResource("6_myhfp")]
+position = Vector2(145, 42)
+spawn_delay = 4.0
+
+[node name="Enemy3" parent="Wave1" instance=ExtResource("6_myhfp")]
+position = Vector2(270, 66)
+entry_dir = 3
 spawn_delay = 4.0
 
 [node name="Wave2" parent="." instance=ExtResource("4_yk3dx")]

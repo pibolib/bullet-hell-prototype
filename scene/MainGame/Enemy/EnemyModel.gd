@@ -7,7 +7,7 @@ func _ready():
 	set_anim("Idle")
 	$AnimationPlayer.advance(global_position.x/300)
 
-func _process(delta):
+func _process(_delta):
 	dynamic_anim(current_anim, $AnimationPlayer.current_animation_position)
 
 func set_anim(anim_name: String) -> void:
