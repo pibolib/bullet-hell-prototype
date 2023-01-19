@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scene/MainGame/MainGame.gd" id="1_7ctrp"]
 [ext_resource type="PackedScene" uid="uid://crw72237c1kfw" path="res://scene/UI/Ingame/IngameUI.tscn" id="4_um8oa"]
 [ext_resource type="PackedScene" uid="uid://bqni3347iibgv" path="res://scene/MainGame/Wave/Wave.tscn" id="4_yk3dx"]
-[ext_resource type="PackedScene" uid="uid://bja48msye6efj" path="res://scene/MainGame/Enemy/BasicRifleEnemy.tscn" id="5_3c2pe"]
+[ext_resource type="PackedScene" uid="uid://dxuyp8xyc1p3p" path="res://scene/MainGame/Enemy/AttackDroneEnemy.tscn" id="5_i3oar"]
 [ext_resource type="PackedScene" uid="uid://c0sid4hykutks" path="res://scene/MainGame/Enemy/BasicShotgunEnemy.tscn" id="6_vof4w"]
 
 [node name="MainGame" type="Node2D"]
@@ -30,9 +30,25 @@ metadata/_edit_lock_ = true
 [node name="Wave1" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 375)
 
-[node name="BasicRifleEnemy" parent="Wave1" instance=ExtResource("5_3c2pe")]
-position = Vector2(-22, 28)
-patterns_overwrite = []
+[node name="AttackDroneEnemy" parent="Wave1" instance=ExtResource("5_i3oar")]
+position = Vector2(37, 46)
+entry_dir = 2
+
+[node name="AttackDroneEnemy2" parent="Wave1" instance=ExtResource("5_i3oar")]
+position = Vector2(148, 35)
+spawn_delay = 3.0
+
+[node name="AttackDroneEnemy4" parent="Wave1" instance=ExtResource("5_i3oar")]
+position = Vector2(197, 81)
+spawn_delay = 2.0
+
+[node name="AttackDroneEnemy5" parent="Wave1" instance=ExtResource("5_i3oar")]
+position = Vector2(98, 80)
+spawn_delay = 2.0
+
+[node name="AttackDroneEnemy3" parent="Wave1" instance=ExtResource("5_i3oar")]
+position = Vector2(259, 47)
+entry_dir = 3
 
 [node name="Wave2" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 754)

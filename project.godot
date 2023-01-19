@@ -10,6 +10,11 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Enemy",
+"class": &"AttackDroneEnemy",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/AttackDroneEnemy.gd"
+}, {
+"base": "Enemy",
 "class": &"BasicRifleEnemy",
 "language": &"GDScript",
 "path": "res://scene/MainGame/Enemy/BasicRifleEnemy.gd"
@@ -28,6 +33,11 @@ _global_script_classes=[{
 "class": &"BasicShotgunEnemyModel",
 "language": &"GDScript",
 "path": "res://scene/MainGame/Enemy/EnemyModel/BasicShotgunEnemyModel.gd"
+}, {
+"base": "Enemy",
+"class": &"BasicStationaryEnemy",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/BasicStationaryEnemy.gd"
 }, {
 "base": "Area2D",
 "class": &"Enemy",
@@ -55,10 +65,12 @@ _global_script_classes=[{
 "path": "res://scene/MainGame/Wave/Wave.gd"
 }]
 _global_script_class_icons={
+"AttackDroneEnemy": "",
 "BasicRifleEnemy": "",
 "BasicRifleEnemyModel": "",
 "BasicShotgunEnemy": "",
 "BasicShotgunEnemyModel": "",
+"BasicStationaryEnemy": "",
 "Enemy": "",
 "EnemyBullet": "",
 "EnemyModel": "",
