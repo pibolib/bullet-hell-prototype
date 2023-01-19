@@ -35,6 +35,11 @@ _global_script_classes=[{
 "path": "res://scene/MainGame/Enemy/EnemyModel/BasicShotgunEnemyModel.gd"
 }, {
 "base": "Enemy",
+"class": &"BasicSniperEnemy",
+"language": &"GDScript",
+"path": "res://scene/MainGame/Enemy/BasicSniperEnemy.gd"
+}, {
+"base": "Enemy",
 "class": &"BasicStationaryEnemy",
 "language": &"GDScript",
 "path": "res://scene/MainGame/Enemy/BasicStationaryEnemy.gd"
@@ -60,6 +65,11 @@ _global_script_classes=[{
 "path": "res://scene/MainGame/EnemyPattern/EnemyPattern.gd"
 }, {
 "base": "Node2D",
+"class": &"PlayerBullet",
+"language": &"GDScript",
+"path": "res://scene/MainGame/PlayerBullet/Bullet.gd"
+}, {
+"base": "Node2D",
 "class": &"Wave",
 "language": &"GDScript",
 "path": "res://scene/MainGame/Wave/Wave.gd"
@@ -70,11 +80,13 @@ _global_script_class_icons={
 "BasicRifleEnemyModel": "",
 "BasicShotgunEnemy": "",
 "BasicShotgunEnemyModel": "",
+"BasicSniperEnemy": "",
 "BasicStationaryEnemy": "",
 "Enemy": "",
 "EnemyBullet": "",
 "EnemyModel": "",
 "EnemyPattern": "",
+"PlayerBullet": "",
 "Wave": ""
 }
 
