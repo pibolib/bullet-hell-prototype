@@ -65,6 +65,11 @@ _global_script_classes=[{
 "path": "res://scene/MainGame/EnemyPattern/EnemyPattern.gd"
 }, {
 "base": "Node2D",
+"class": &"EnemySniperBullet",
+"language": &"GDScript",
+"path": "res://scene/MainGame/EnemyBullet/EnemySniperBullet.gd"
+}, {
+"base": "Node2D",
 "class": &"PlayerBullet",
 "language": &"GDScript",
 "path": "res://scene/MainGame/PlayerBullet/Bullet.gd"
@@ -86,6 +91,7 @@ _global_script_class_icons={
 "EnemyBullet": "",
 "EnemyModel": "",
 "EnemyPattern": "",
+"EnemySniperBullet": "",
 "PlayerBullet": "",
 "Wave": ""
 }

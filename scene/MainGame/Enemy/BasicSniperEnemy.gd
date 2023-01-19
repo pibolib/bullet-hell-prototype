@@ -13,8 +13,9 @@ enum EntryDirections {
 var current_shot_count = 0
 var target_pos = Vector2(0,0)
 var lerp_speed = 10
+var tracking_angle = PI/2
 func _ready():
-	patterns = [load("res://scene/MainGame/EnemyPattern/EnemyPatternSingleShot.tscn")]
+	patterns = [load("res://scene/MainGame/EnemyPattern/EnemyPatternSniperShot.tscn")]
 	target_pos = position
 	match entry_dir:
 		EntryDirections.FROM_TOP:
@@ -33,6 +34,7 @@ func _ready():
 func _process(delta):
 	if state != Status.PRE_INIT:
 		position = lerp(position,target_pos,lerp_speed*delta)
+		tracking_angle = lerp_angle(tracking_angle,-get_angle_to_player(global_position)+PI/2,delta*4)
 	super(delta)
 
 func init_state(new_state: Status) -> void:

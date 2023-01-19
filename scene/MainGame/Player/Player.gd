@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 signal player_hit
 signal bullet_shot
@@ -60,6 +60,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	elif !invulnerable: 
 		emit_signal("player_hit")
+
+func hitscan_hit() -> bool:
+	if !invulnerable:
+		emit_signal("player_hit")
+	return invulnerable
 
 func take_damage() -> void:
 	$Invulnerability.start(2)
