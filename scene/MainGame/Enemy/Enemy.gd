@@ -18,7 +18,7 @@ var game: Node
 var score: int = 300
 var current_attack = 0
 var despawn_border = 100
-@export var first_idle = 1.5
+@export var first_idle = 0
 var first = true
 @export_range(1,11,0.25,"suffix: seconds") var spawn_delay: float = 1
 @export var hp: int = 1
