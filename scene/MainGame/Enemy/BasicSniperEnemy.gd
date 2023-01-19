@@ -1,5 +1,5 @@
 extends Enemy
-class_name BasicStationaryEnemy
+class_name BasicSniperEnemy
 
 enum EntryDirections {
 	FROM_TOP,
@@ -13,8 +13,9 @@ enum EntryDirections {
 var current_shot_count = 0
 var target_pos = Vector2(0,0)
 var lerp_speed = 10
+var tracking_angle = PI/2
 func _ready():
-	patterns = [load("res://scene/MainGame/EnemyPattern/EnemyPatternSingleShot.tscn")]
+	patterns = [load("res://scene/MainGame/EnemyPattern/EnemyPatternSniperShot.tscn")]
 	target_pos = position
 	match entry_dir:
 		EntryDirections.FROM_TOP:
@@ -26,22 +27,24 @@ func _ready():
 		EntryDirections.FROM_RIGHT:
 			position.x = 330
 	despawn_border = 31
+	dodges = 1
 	super()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if state != Status.PRE_INIT:
 		position = lerp(position,target_pos,lerp_speed*delta)
+		tracking_angle = lerp_angle(tracking_angle,-get_angle_to_player(global_position)+PI/2,delta*4)
 	super(delta)
 
 func init_state(new_state: Status) -> void:
 	super(new_state)
 	match state:
 		Status.INIT:
-			state_timer.start(1)
+			state_timer.start(3)
 			$Model.set_anim("Idle")
 		Status.ATTACK:
-			state_timer.start(2)
+			state_timer.start(4)
 			$Model.set_anim("Attack")
 		Status.LEAVE:
 			$Model.set_anim("Idle")
@@ -68,3 +71,10 @@ func handle_state(current_state: Status) -> void:
 				init_state(Status.LEAVE)
 			else:
 				init_state(Status.INIT)
+
+func dodge(bullet: PlayerBullet) -> void:
+	if global_position.x < bullet.collision_point.x:
+		target_pos.x -= 20
+	else:
+		target_pos.x += 20
+	super(bullet)

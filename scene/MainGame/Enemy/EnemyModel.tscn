@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scene/MainGame/Enemy/EnemyModel.gd" id="1_4jb68"]
 [ext_resource type="Texture2D" uid="uid://cgftcjg4bgksd" path="res://assets/enemy_1_sheet.png" id="1_prw83"]
 
-[sub_resource type="Animation" id="Animation_c63pa"]
-resource_name = "Idle"
-
 [sub_resource type="Animation" id="Animation_sf3pp"]
 resource_name = "Attack"
 length = 2.0
+
+[sub_resource type="Animation" id="Animation_c63pa"]
+resource_name = "Idle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rq775"]
 _data = {

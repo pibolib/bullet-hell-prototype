@@ -18,20 +18,29 @@ var game: Node
 var score: int = 300
 var current_attack = 0
 var despawn_border = 100
-@export var first_idle = 1.5
+@export var first_idle = 0
 var first = true
+var dodges = 0
+var max_dodges = 0
 @export_range(1,11,0.25,"suffix: seconds") var spawn_delay: float = 1
 @export var hp: int = 1
 @export var patterns_overwrite: Array[PackedScene] = []
+@onready var dodge_regain_timer = Timer.new()
+@onready var state_timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_child(dodge_regain_timer)
+	add_child(state_timer)
 	game = get_parent().get_parent()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	$Model.visible = false
 	self.connect("enemy_died",get_parent()._on_enemy_death)
+	dodge_regain_timer.connect("timeout",_on_dodge_regain_timer_timeout)
+	state_timer.connect("timeout",_on_state_timer_timeout)
 	if patterns_overwrite.size() > 0:
 		patterns = patterns_overwrite
+	max_dodges = dodges
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -49,8 +58,12 @@ func _process(_delta):
 			emit_signal("enemy_died")
 			queue_free()
 
-func take_damage():
-	hp -= 1
+func activate() -> void:
+	init_state(Status.PRE_INIT)
+	$Model.visible = true
+
+func init() -> void:
+	pass
 
 func handle_state(current_state: Status) -> void:
 	match current_state:
@@ -58,16 +71,38 @@ func handle_state(current_state: Status) -> void:
 			init()
 			init_state(Status.INIT)
 
-func _on_state_timer_timeout():
-	$StateTimer.stop()
-	handle_state(state)
-	
 func init_state(new_state: Status) -> void:
 	state = new_state
 	match state:
 		Status.PRE_INIT:
-			$StateTimer.start(spawn_delay)
+			state_timer.start(spawn_delay)
 			process_mode = Node.PROCESS_MODE_INHERIT
+
+func _on_state_timer_timeout():
+	state_timer.stop()
+	handle_state(state)
+
+func _on_bullet_collide(bullet: Node2D) -> bool:
+	#returns true if the bullet actually collided with the enemy (dealing damage), and false otherwise
+	if dodges > 0:
+		dodge(bullet)
+		return false
+	take_damage()
+	return true
+
+func take_damage() -> void:
+	hp -= 1
+	
+func dodge(_bullet: PlayerBullet) -> void:
+	dodge_regain_timer.start(3)
+	dodges -= 1
+	
+func _on_dodge_regain_timer_timeout() -> void:
+	dodges += 1
+	if dodges < max_dodges:
+		dodge_regain_timer.start(3)
+	else:
+		dodge_regain_timer.stop()
 
 func create_pattern(id: int) -> void:
 	var new_pattern = patterns[id].instantiate()
@@ -76,10 +111,3 @@ func create_pattern(id: int) -> void:
 func get_angle_to_player(start_pos: Vector2) -> float:
 	var target = Global.player_pos
 	return start_pos.angle_to_point(target)
-
-func activate() -> void:
-	init_state(Status.PRE_INIT)
-	$Model.visible = true
-
-func init() -> void:
-	pass

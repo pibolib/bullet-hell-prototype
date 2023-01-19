@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://scene/MainGame/Player/Player.gd" id="1_2kmp1"]
 [ext_resource type="Texture2D" uid="uid://dkoonkl0w1pib" path="res://assets/mc_sprite.png" id="2_48cg2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y8v6p"]
-radius = 1.0
-
 [sub_resource type="Animation" id="Animation_awhtb"]
 resource_name = "Invulnerability"
 length = 2.0
@@ -28,7 +25,11 @@ _data = {
 "Invulnerability": SubResource("Animation_awhtb")
 }
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8v6p"]
+radius = 1.0
+
+[node name="Player" type="Area2D"]
+collision_mask = 12
 script = ExtResource("1_2kmp1")
 
 [node name="Sprite" type="Node2D" parent="."]
@@ -125,12 +126,6 @@ region_rect = Rect2(56, 17, 3, 11)
 [node name="BulletSpawn" type="Node2D" parent="Sprite/Arm1/Hand1/Gun"]
 position = Vector2(0, -5.5)
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_mask = 12
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_y8v6p")
-
 [node name="Invulnerability" type="Timer" parent="."]
 wait_time = 2.0
 
@@ -146,6 +141,9 @@ libraries = {
 offset = Vector2(0, -10)
 polygon = PackedVector2Array(3, -18, 0, -23, -3, -18, 0, -32)
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y8v6p")
+
+[connection signal="area_entered" from="." to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]
 [connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

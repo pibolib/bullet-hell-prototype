@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://3u8vfontbd5g"]
+
+[ext_resource type="Script" path="res://scene/MainGame/Enemy/BasicSniperEnemy.gd" id="1_x23d3"]
+[ext_resource type="PackedScene" uid="uid://drbgukuhhh810" path="res://scene/MainGame/Enemy/EnemyModel/BasicRifleEnemyModel.tscn" id="2_6riin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bafq3"]
+radius = 23.0217
+
+[node name="BasicSniperEnemy" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_x23d3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bafq3")
+
+[node name="Model" parent="." instance=ExtResource("2_6riin")]

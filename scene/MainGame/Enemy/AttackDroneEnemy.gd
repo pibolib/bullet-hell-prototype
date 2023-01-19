@@ -1,5 +1,5 @@
 extends Enemy
-class_name BasicStationaryEnemy
+class_name AttackDroneEnemy
 
 enum EntryDirections {
 	FROM_TOP,
@@ -13,8 +13,9 @@ enum EntryDirections {
 var current_shot_count = 0
 var target_pos = Vector2(0,0)
 var lerp_speed = 10
+
 func _ready():
-	patterns = [load("res://scene/MainGame/EnemyPattern/EnemyPatternSingleShot.tscn")]
+	patterns = [load("res://scene/MainGame/EnemyPattern/EnemyPatternCircleShot.tscn")]
 	target_pos = position
 	match entry_dir:
 		EntryDirections.FROM_TOP:
@@ -38,10 +39,10 @@ func init_state(new_state: Status) -> void:
 	super(new_state)
 	match state:
 		Status.INIT:
-			state_timer.start(1)
+			state_timer.start(3)
 			$Model.set_anim("Idle")
 		Status.ATTACK:
-			state_timer.start(2)
+			state_timer.start(0.5)
 			$Model.set_anim("Attack")
 		Status.LEAVE:
 			$Model.set_anim("Idle")
@@ -67,4 +68,4 @@ func handle_state(current_state: Status) -> void:
 			if current_shot_count >= shot_count:
 				init_state(Status.LEAVE)
 			else:
-				init_state(Status.INIT)
+				init_state(Status.ATTACK)

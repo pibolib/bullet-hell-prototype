@@ -29,12 +29,11 @@ func handle_state(current_state: Status) -> void:
 func init_state(new_state: Status) -> void:
 	super(new_state)
 	match state:
-		Status.LEAVE:
-			$Model.set_anim("Idle")
 		Status.INIT:
-			$Model.set_anim("Attack") # to be replaced with "ShortAttack" on shotgun model
+			$Model.set_anim("Ready") # to be replaced with "ShortAttack" on shotgun model
 		Status.ATTACK:
-			$StateTimer.start(0.05)
+			$Model.set_anim("Attack")
+			state_timer.start(0.05)
 			init_state(Status.LEAVE)
 
 func init() -> void:

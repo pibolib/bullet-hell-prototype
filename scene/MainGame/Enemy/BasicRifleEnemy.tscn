@@ -15,8 +15,3 @@ script = ExtResource("1_o0pua")
 shape = SubResource("CircleShape2D_bafq3")
 
 [node name="Model" parent="." instance=ExtResource("2_26sw4")]
-
-[node name="StateTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
