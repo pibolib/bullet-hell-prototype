@@ -39,10 +39,10 @@ func init_state(new_state: Status) -> void:
 	super(new_state)
 	match state:
 		Status.INIT:
-			$StateTimer.start(3)
+			state_timer.start(3)
 			$Model.set_anim("Idle")
 		Status.ATTACK:
-			$StateTimer.start(0.5)
+			state_timer.start(0.5)
 			$Model.set_anim("Attack")
 		Status.LEAVE:
 			$Model.set_anim("Idle")

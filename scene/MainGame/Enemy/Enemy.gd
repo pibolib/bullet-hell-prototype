@@ -26,15 +26,18 @@ var max_dodges = 0
 @export var hp: int = 1
 @export var patterns_overwrite: Array[PackedScene] = []
 @onready var dodge_regain_timer = Timer.new()
+@onready var state_timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(dodge_regain_timer)
+	add_child(state_timer)
 	game = get_parent().get_parent()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	$Model.visible = false
 	self.connect("enemy_died",get_parent()._on_enemy_death)
 	dodge_regain_timer.connect("timeout",_on_dodge_regain_timer_timeout)
+	state_timer.connect("timeout",_on_state_timer_timeout)
 	if patterns_overwrite.size() > 0:
 		patterns = patterns_overwrite
 	max_dodges = dodges
@@ -72,11 +75,11 @@ func init_state(new_state: Status) -> void:
 	state = new_state
 	match state:
 		Status.PRE_INIT:
-			$StateTimer.start(spawn_delay)
+			state_timer.start(spawn_delay)
 			process_mode = Node.PROCESS_MODE_INHERIT
 
 func _on_state_timer_timeout():
-	$StateTimer.stop()
+	state_timer.stop()
 	handle_state(state)
 
 func _on_bullet_collide(bullet: Node2D) -> bool:

@@ -29,12 +29,12 @@ func init_state(new_state: Status) -> void:
 	match state:
 		Status.INIT:
 			if first:
-				$StateTimer.start(first_idle)
+				state_timer.start(first_idle)
 				first = true
 			else:
-				$StateTimer.start(1)
+				state_timer.start(1)
 		Status.ATTACK:
-			$StateTimer.start(2)
+			state_timer.start(2)
 			$Model.set_anim("Attack")
 
 func init() -> void:

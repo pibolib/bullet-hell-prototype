@@ -17,9 +17,6 @@ script = ExtResource("1_t2w2a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bafq3")
 
-[node name="StateTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="RepelZone" type="Area2D" parent="."]
 collision_layer = 16
 
@@ -28,5 +25,4 @@ shape = SubResource("CircleShape2D_f64fs")
 
 [node name="Model" parent="." instance=ExtResource("2_ykj6y")]
 
-[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
 [connection signal="area_entered" from="RepelZone" to="." method="_on_repel_zone_area_entered"]

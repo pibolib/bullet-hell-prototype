@@ -14,9 +14,4 @@ script = ExtResource("1_x23d3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bafq3")
 
-[node name="StateTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="Model" parent="." instance=ExtResource("2_6riin")]
-
-[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]

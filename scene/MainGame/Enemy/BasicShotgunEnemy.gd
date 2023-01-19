@@ -33,7 +33,7 @@ func init_state(new_state: Status) -> void:
 			$Model.set_anim("Ready") # to be replaced with "ShortAttack" on shotgun model
 		Status.ATTACK:
 			$Model.set_anim("Attack")
-			$StateTimer.start(0.05)
+			state_timer.start(0.05)
 			init_state(Status.LEAVE)
 
 func init() -> void:
