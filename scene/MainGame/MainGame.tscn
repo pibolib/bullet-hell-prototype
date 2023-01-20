@@ -31,7 +31,25 @@ metadata/_edit_lock_ = true
 position = Vector2(1, 375)
 
 [node name="BasicSniperEnemy" parent="Wave1" instance=ExtResource("5_uhswc")]
-position = Vector2(40, 41)
+position = Vector2(145, 41)
+
+[node name="BasicSniperEnemy2" parent="Wave1" instance=ExtResource("5_uhswc")]
+position = Vector2(212, 65)
+spawn_delay = 1.5
+
+[node name="BasicSniperEnemy3" parent="Wave1" instance=ExtResource("5_uhswc")]
+position = Vector2(75, 65)
+spawn_delay = 1.5
+
+[node name="BasicSniperEnemy4" parent="Wave1" instance=ExtResource("5_uhswc")]
+position = Vector2(52, 123)
+entry_dir = 2
+spawn_delay = 2.0
+
+[node name="BasicSniperEnemy5" parent="Wave1" instance=ExtResource("5_uhswc")]
+position = Vector2(246, 124)
+entry_dir = 3
+spawn_delay = 2.0
 
 [node name="Wave2" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 754)

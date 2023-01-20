@@ -22,6 +22,7 @@ var despawn_border = 100
 var first = true
 var dodges = 0
 var max_dodges = 0
+var aim_overload = false
 @export_range(1,11,0.25,"suffix: seconds") var spawn_delay: float = 1
 @export var hp: int = 1
 @export var patterns_overwrite: Array[PackedScene] = []
@@ -53,7 +54,8 @@ func _process(_delta):
 		Global._on_score_change(score)
 		queue_free()
 	if state != Status.PRE_INIT:
-		$Model.set_aim_dir(get_angle_to_player(position))
+		if !aim_overload:
+			$Model.set_aim_dir(get_angle_to_player(position))
 		if position.x < -despawn_border or position.x > 300+despawn_border or position.y > 350+despawn_border or position.y < -despawn_border:
 			emit_signal("enemy_died")
 			queue_free()
@@ -111,3 +113,7 @@ func create_pattern(id: int) -> void:
 func get_angle_to_player(start_pos: Vector2) -> float:
 	var target = Global.player_pos
 	return start_pos.angle_to_point(target)
+
+func get_distance_to_player(start_pos: Vector2) -> float:
+	var target = Global.player_pos
+	return start_pos.distance_to(target)
