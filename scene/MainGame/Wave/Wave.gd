@@ -9,6 +9,7 @@ var enemycount: int = 0
 func _ready():
 	$WavePreview.visible = false
 	count_wave_enemies()
+	visible = false
 
 func count_wave_enemies() -> void:
 	for node in self.get_children():
@@ -23,6 +24,7 @@ func start_wave() -> void:
 	position = Vector2(0,0)
 	for enemy in enemies:
 		enemy.activate()
+	set_wave_visible()
 
 func _on_enemy_death() -> void:
 	enemycount -= 1
@@ -30,3 +32,7 @@ func _on_enemy_death() -> void:
 	if enemycount == 0:
 		get_parent().wave_active = true
 		get_parent().get_node("./WaveTimer").start(3)
+
+func set_wave_visible() -> void:
+	await get_tree().create_timer(0.1).timeout
+	visible = true

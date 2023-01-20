@@ -28,6 +28,8 @@ func _ready():
 			position.x = 330
 	despawn_border = 31
 	dodges = 1
+	aim_overload = true
+	score = 2000
 	super()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +37,11 @@ func _process(delta):
 	if state != Status.PRE_INIT:
 		position = lerp(position,target_pos,lerp_speed*delta)
 		tracking_angle = lerp_angle(tracking_angle,-get_angle_to_player(global_position)+PI/2,delta*4)
+	$TargetLine.visible = (state == Status.ATTACK)
+	if state == Status.ATTACK:
+		$TargetLine.rotation = -tracking_angle + PI/2
+		$TargetLine.points = [Vector2(0,0),Vector2(1000,0)]
+		$Model.set_aim_dir(-tracking_angle + PI/2)
 	super(delta)
 
 func init_state(new_state: Status) -> void:
@@ -42,10 +49,10 @@ func init_state(new_state: Status) -> void:
 	match state:
 		Status.INIT:
 			state_timer.start(3)
-			$Model.set_anim("Idle")
 		Status.ATTACK:
+			$TargetLineAnim.play("LineAnim")
 			state_timer.start(4)
-			$Model.set_anim("Attack")
+			$Model.set_anim("Ready")
 		Status.LEAVE:
 			$Model.set_anim("Idle")
 			lerp_speed = 1
@@ -63,18 +70,21 @@ func handle_state(current_state: Status) -> void:
 	super(current_state)
 	match current_state:
 		Status.INIT:
-			init_state(Status.ATTACK)
-		Status.ATTACK:
-			create_pattern(0)
-			current_shot_count += 1
 			if current_shot_count >= shot_count:
 				init_state(Status.LEAVE)
 			else:
-				init_state(Status.INIT)
+				init_state(Status.ATTACK)
+		Status.ATTACK:
+			$Model.set_anim("Attack")
+			create_pattern(0)
+			current_shot_count += 1
+			init_state(Status.INIT)
+
 
 func dodge(bullet: PlayerBullet) -> void:
 	if global_position.x < bullet.collision_point.x:
 		target_pos.x -= 20
 	else:
 		target_pos.x += 20
+	$Model.visor_alpha_in()
 	super(bullet)
