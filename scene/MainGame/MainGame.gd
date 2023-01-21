@@ -9,6 +9,7 @@ var wave_active: bool = false
 func _ready():
 	count_waves()
 	activate_wave(0)
+	Audio.play_track(0)
 
 func _process(delta):
 	update_camera_shake(delta)
