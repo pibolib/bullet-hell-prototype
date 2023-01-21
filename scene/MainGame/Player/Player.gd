@@ -34,12 +34,19 @@ func _process(delta):
 		velocity.x = PLAYER_SPEED * speed_multiplier
 	elif Input.is_action_pressed("ingame_move_left"): 
 		velocity.x = -PLAYER_SPEED * speed_multiplier
-	if Input.is_action_just_pressed("ingame_fire") and stats.Bullets > 0:
+	if Input.is_action_just_pressed("ingame_fire"):
+		if stats.Bullets > 0:
+			$PlayerAim/AnimationPlayer.play("AimIn")
+		else:
+			# case for playing click audio goes here
+			pass
+	if Input.is_action_just_released("ingame_fire") and stats.Bullets > 0:
 		var new_bullet = bullet.instantiate()
 		new_bullet.start_point = $Sprite/Arm1/Hand1/Gun/BulletSpawn.global_position
 		new_bullet.angle = Global.angle+PI
 		get_parent().add_child(new_bullet)
 		emit_signal("bullet_shot")
+		$PlayerAim/AnimationPlayer.play("Restore")
 		$Reload.stop()
 	if Input.is_action_just_pressed("ingame_focus"):
 		$Reload.start(0.5)
@@ -51,7 +58,7 @@ func _process(delta):
 	velocity = lerp(velocity,Vector2(0,0),FRICTION_RATE*delta)
 	position.x = clamp(position.x,0,300)
 	position.y = clamp(position.y,0,350)
-	$Indicator.rotation = -Global.angle
+	$PlayerAim/Indicator.rotation = -Global.angle
 	$Sprite/Arm1.rotation = -Global.angle
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

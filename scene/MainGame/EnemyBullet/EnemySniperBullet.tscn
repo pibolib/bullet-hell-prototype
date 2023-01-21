@@ -1,13 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbamly1q25tiw"]
+[gd_scene load_steps=5 format=3 uid="uid://bbamly1q25tiw"]
 
 [ext_resource type="Script" path="res://scene/MainGame/EnemyBullet/EnemySniperBullet.gd" id="1_erem5"]
 
-[sub_resource type="Gradient" id="Gradient_wlp44"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.401709, 0.606838, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 0.101961, 0.101961, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="Animation" id="Animation_n2c1h"]
+[sub_resource type="Animation" id="Animation_it4u6"]
 resource_name = "Life"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,7 +26,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 0.258817),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0.207843, 0.541176, 0.952941, 1), Color(0.207843, 0.541176, 0.952941, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -48,7 +43,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_5ctwd"]
+[sub_resource type="Animation" id="Animation_1b8vi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -75,10 +70,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l4jlw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_slucs"]
 _data = {
-"Life": SubResource("Animation_n2c1h"),
-"RESET": SubResource("Animation_5ctwd")
+"Life": SubResource("Animation_it4u6"),
+"RESET": SubResource("Animation_1b8vi")
 }
 
 [node name="EnemySniperBullet" type="Node2D"]
@@ -87,7 +82,6 @@ script = ExtResource("1_erem5")
 [node name="Visual" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 1, 0)
 width = 2.0
-gradient = SubResource("Gradient_wlp44")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(1000, 0)
@@ -97,5 +91,5 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_l4jlw")
+"": SubResource("AnimationLibrary_slucs")
 }
