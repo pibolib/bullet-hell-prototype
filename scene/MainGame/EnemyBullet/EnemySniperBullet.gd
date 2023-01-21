@@ -11,6 +11,8 @@ func _ready():
 	$Visual.points = [start_point,target_point]
 	$RayCast2D.position = start_point
 	$RayCast2D.rotation = -angle + PI/2
+	$Graze.rotation = start_point.angle_to_point(target_point-position) + PI
+	$Graze.position = lerp(start_point,target_point,1)
 	$AnimationPlayer.play("Life")
 	$RayCast2D.force_raycast_update()
 	var collider = $RayCast2D.get_collider()
@@ -18,3 +20,7 @@ func _ready():
 		collision_point = $RayCast2D.get_collision_point()
 		if(collider.hitscan_hit(collision_point)):
 			$Visual.points = [start_point,collider.position-position]
+			$Graze.position = lerp(start_point,collision_point-position,1)
+			$Graze.scale.x = start_point.distance_to(collision_point)
+	else:
+		$Graze.scale.x = start_point.distance_to(target_point)

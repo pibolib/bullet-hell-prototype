@@ -43,3 +43,8 @@ text = "HP: 3"
 [node name="Bullets" type="Label" parent="TopLeft"]
 layout_mode = 2
 text = "Bullets: 6"
+
+[node name="ScoreAdd" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="ScoreAdd" to="." method="_on_score_add_timeout"]

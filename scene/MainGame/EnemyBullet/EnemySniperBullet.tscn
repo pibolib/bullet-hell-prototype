@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbamly1q25tiw"]
+[gd_scene load_steps=6 format=3 uid="uid://bbamly1q25tiw"]
 
 [ext_resource type="Script" path="res://scene/MainGame/EnemyBullet/EnemySniperBullet.gd" id="1_erem5"]
 
-[sub_resource type="Animation" id="Animation_fjqtp"]
+[sub_resource type="Animation" id="Animation_8porq"]
 resource_name = "Life"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -43,7 +43,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_sryko"]
+[sub_resource type="Animation" id="Animation_7jo26"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,11 +70,14 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_typxo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5l7sq"]
 _data = {
-"Life": SubResource("Animation_fjqtp"),
-"RESET": SubResource("Animation_sryko")
+"Life": SubResource("Animation_8porq"),
+"RESET": SubResource("Animation_7jo26")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlyhh"]
+size = Vector2(1, 1)
 
 [node name="EnemySniperBullet" type="Node2D"]
 script = ExtResource("1_erem5")
@@ -91,5 +94,13 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_typxo")
+"": SubResource("AnimationLibrary_5l7sq")
 }
+
+[node name="Graze" type="Area2D" parent="."]
+scale = Vector2(1, 8)
+collision_layer = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graze"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_wlyhh")

@@ -77,6 +77,7 @@ func _process(delta):
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "Graze":
 		emit_signal("bullet_grazed")
+		Audio.play_graze()
 		area.queue_free()
 	elif !invulnerable: 
 		emit_signal("player_hit")
@@ -97,6 +98,7 @@ func take_damage() -> void:
 		$Invulnerability.start(2)
 		$AnimationPlayer.play("Invulnerability")
 		invulnerable = true
+	$SFX/PlayerHurt.play()
 
 func _on_invulnerability_timeout() -> void:
 	invulnerable = false
