@@ -9,6 +9,7 @@ var wave_active: bool = false
 func _ready():
 	count_waves()
 	activate_wave(0)
+	Audio.play_track(0)
 
 func _process(delta):
 	update_camera_shake(delta)
@@ -25,6 +26,9 @@ func add_camera_shake(amount: float) -> void:
 
 func _on_player_fire() -> void:
 	add_camera_shake(1.5)
+	
+func _on_player_hit() -> void:
+	add_camera_shake(4)
 
 func count_waves() -> void:
 	for node in get_children():
@@ -36,7 +40,6 @@ func activate_wave(wave: int) -> void:
 	waves[wave].start_wave()
 	wave_active = true
 	$WaveTimer.start(waves[wave].wave_minimum_time)
-
 
 func _on_wave_timer_timeout():
 	wave_active = false
