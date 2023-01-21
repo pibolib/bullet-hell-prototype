@@ -3,7 +3,8 @@ extends Node
 var bgm_volume: float = 1
 var sfx_volume: float = 1
 var bgm_tracks: Array = [
-	preload("res://assets/bgm/stage1.ogg")
+	preload("res://assets/bgm/stage1.ogg"),
+	preload("res://assets/bgm/boss1.ogg")
 ]
 
 func _ready():
@@ -37,3 +38,18 @@ func fade_out() -> void:
 func stop_track() -> void:
 	if $BGMPlayer.playing:
 		$BGMPlayer.stop()
+
+func play_rifle() -> void:
+	$Rifle.play()
+func play_shotgun() -> void:
+	$Shotgun.play()
+func play_sniper() -> void:
+	$Sniper.play()
+func play_spammable() -> void:
+	$Spammable.play()
+func play_explosion() -> void:
+	$Explosion.pitch_scale = randf_range(0.95,1.05)
+	$Explosion.play()
+func play_dodge() -> void:
+	$Dodge.play()
+	

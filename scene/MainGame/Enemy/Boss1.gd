@@ -30,7 +30,7 @@ func _ready():
 			position.x = 330
 	despawn_border = 31
 	score = 15000
-	hp = 40
+	hp = 60
 	super()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,7 +38,7 @@ func _process(delta):
 	if state != Status.PRE_INIT:
 		position = lerp(position,target_pos,lerp_speed*delta)
 	super(delta)
-	attack_phase = 4-ceil((hp+9)/10)
+	attack_phase = 4-ceil((hp+14)/15)
 	$Model.set_hat_visible(attack_phase <= 1)
 	$Model.set_goggles_visible(attack_phase <= 2)
 

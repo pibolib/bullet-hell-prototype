@@ -21,6 +21,7 @@ func handle_state(current_state: Status) -> void:
 		Status.INIT:
 			init_state(Status.ATTACK)
 		Status.ATTACK:
+			Audio.play_rifle()
 			create_pattern(0)
 			init_state(Status.INIT)
 

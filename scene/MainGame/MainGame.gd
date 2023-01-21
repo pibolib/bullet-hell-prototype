@@ -53,6 +53,8 @@ func activate_wave(wave: int) -> void:
 	$WaveTimer.start(waves[wave].wave_minimum_time)
 	current_wave_time = waves[wave].wave_minimum_time
 	current_camera_target = camera_targets[wave]
+	if current_wave == waves.size()-1:
+		Audio.play_track(1)
 	if wave > 0:
 		wave_start_position = camera_targets[wave-1]
 

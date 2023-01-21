@@ -290,7 +290,6 @@ region_rect = Rect2(34, 7, 4, 4)
 [node name="Arm1" type="Sprite2D" parent="ArmAttack"]
 z_index = -1
 position = Vector2(-6, -4)
-scale = Vector2(1, 1)
 texture = ExtResource("2_ncfqy")
 offset = Vector2(0, 3)
 region_enabled = true

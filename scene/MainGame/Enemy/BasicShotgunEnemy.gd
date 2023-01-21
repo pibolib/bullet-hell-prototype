@@ -25,6 +25,7 @@ func handle_state(current_state: Status) -> void:
 		Status.INIT:
 			init_state(Status.ATTACK)
 		Status.LEAVE:
+			Audio.play_shotgun()
 			create_pattern(0)
 func init_state(new_state: Status) -> void:
 	super(new_state)

@@ -76,6 +76,7 @@ func handle_state(current_state: Status) -> void:
 				init_state(Status.ATTACK)
 		Status.ATTACK:
 			$Model.set_anim("Attack")
+			Audio.play_sniper()
 			create_pattern(0)
 			current_shot_count += 1
 			init_state(Status.INIT)
