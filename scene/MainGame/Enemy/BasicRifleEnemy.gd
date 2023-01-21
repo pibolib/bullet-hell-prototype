@@ -21,6 +21,7 @@ func handle_state(current_state: Status) -> void:
 		Status.INIT:
 			init_state(Status.ATTACK)
 		Status.ATTACK:
+			Audio.play_rifle()
 			create_pattern(0)
 			init_state(Status.INIT)
 
@@ -29,8 +30,8 @@ func init_state(new_state: Status) -> void:
 	match state:
 		Status.INIT:
 			if first:
-				state_timer.start(first_idle)
-				first = true
+				state_timer.start(2)
+				first = false
 			else:
 				state_timer.start(1)
 		Status.ATTACK:

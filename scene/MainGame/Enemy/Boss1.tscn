@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cygr3nae60mhh"]
+
+[ext_resource type="Script" path="res://scene/MainGame/Enemy/Boss1.gd" id="1_6pd0t"]
+[ext_resource type="PackedScene" uid="uid://2i3u6h0knl1w" path="res://scene/MainGame/Enemy/EnemyModel/Boss1Model.tscn" id="2_oyr7q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bafq3"]
+radius = 23.0
+
+[node name="Boss1" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_6pd0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bafq3")
+
+[node name="Model" parent="." instance=ExtResource("2_oyr7q")]

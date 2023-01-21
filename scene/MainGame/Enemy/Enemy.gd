@@ -6,7 +6,8 @@ enum Status {
 	PRE_INIT,
 	INIT,
 	ATTACK,
-	LEAVE
+	LEAVE,
+	READY
 }
 
 signal enemy_died
@@ -98,6 +99,7 @@ func take_damage() -> void:
 func dodge(_bullet: PlayerBullet) -> void:
 	dodge_regain_timer.start(3)
 	dodges -= 1
+	Audio.play_dodge()
 	
 func _on_dodge_regain_timer_timeout() -> void:
 	dodges += 1

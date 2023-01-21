@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsriw8exusca"]
+[gd_scene load_steps=10 format=3 uid="uid://dsriw8exusca"]
 
 [ext_resource type="Script" path="res://scene/Global/BGM.gd" id="1_6y82r"]
+[ext_resource type="AudioStream" uid="uid://pwswj8h1lgmy" path="res://assets/sfx/pistol_rifle.wav" id="2_qjnrd"]
+[ext_resource type="AudioStream" uid="uid://b2o2d32rymbef" path="res://assets/sfx/shotgun.wav" id="3_cr2yt"]
+[ext_resource type="AudioStream" uid="uid://cuxk6e8mnltl8" path="res://assets/sfx/spammable.wav" id="4_l6cqf"]
+[ext_resource type="AudioStream" uid="uid://bndr2besxucyr" path="res://assets/sfx/sniper.wav" id="5_d1qkw"]
+[ext_resource type="AudioStream" uid="uid://di76r48duyr7n" path="res://assets/sfx/explosion.wav" id="6_bkcjv"]
+[ext_resource type="AudioStream" uid="uid://4jcmp642osyg" path="res://assets/sfx/dodge.wav" id="7_b7rie"]
 
 [sub_resource type="Animation" id="Animation_meni6"]
 resource_name = "Fadeout"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -11,7 +18,7 @@ tracks/0/path = NodePath("BGMPlayer:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -80.0]
@@ -26,9 +33,40 @@ _data = {
 script = ExtResource("1_6y82r")
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -15.826
+volume_db = -40.0
+bus = &"BGM"
 
 [node name="Mixer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1rjvo")
 }
+
+[node name="Rifle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qjnrd")
+volume_db = -8.622
+bus = &"SFX"
+
+[node name="Shotgun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cr2yt")
+volume_db = -8.622
+bus = &"SFX"
+
+[node name="Spammable" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l6cqf")
+volume_db = -8.622
+bus = &"SFX"
+
+[node name="Sniper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_d1qkw")
+volume_db = -3.772
+bus = &"SFX"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bkcjv")
+volume_db = -5.928
+bus = &"SFX"
+
+[node name="Dodge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_b7rie")
+volume_db = -3.234
+bus = &"SFX"

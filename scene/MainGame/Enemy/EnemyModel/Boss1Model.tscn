@@ -1,0 +1,378 @@
+[gd_scene load_steps=7 format=3 uid="uid://2i3u6h0knl1w"]
+
+[ext_resource type="Script" path="res://scene/MainGame/Enemy/EnemyModel/Boss1Model.gd" id="1_w15rt"]
+[ext_resource type="Texture2D" uid="uid://b1ffpaijfiwj0" path="res://assets/boss1.png" id="2_x7g7r"]
+
+[sub_resource type="Animation" id="Animation_dkvdm"]
+resource_name = "Attack"
+length = 0.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmAttack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmNeutral:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmAttack/GunHolding/MuzzleFlash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmAttack/GunHolding:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(20.9715, 1),
+"update": 0,
+"values": [Vector2(-1, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_71nly"]
+resource_name = "Idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmNeutral:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.435275, 1.93187, 0.420448, 2.21914),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.5), Vector2(0, 0), Vector2(0, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.435275, 1.93187, 0.420448, 2.21914),
+"update": 0,
+"values": [Vector2(-1, -3), Vector2(-1, -3.5), Vector2(-1, -3), Vector2(-1, -2.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 1.3, 2.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -11), Vector2(-1, -11.5), Vector2(-1, -11), Vector2(-1, -10.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmNeutral:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArmAttack:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_27cn8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmNeutral:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmNeutral:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArmAttack:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArmAttack/GunHolding/MuzzleFlash:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ArmAttack/GunHolding:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25o1o"]
+_data = {
+"Attack": SubResource("Animation_dkvdm"),
+"Idle": SubResource("Animation_71nly"),
+"RESET": SubResource("Animation_27cn8")
+}
+
+[node name="Model" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(0, 1)
+script = ExtResource("1_w15rt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_25o1o")
+}
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(-1, -11)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(3, 0, 13, 13)
+
+[node name="Goggles" type="Sprite2D" parent="Head"]
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(29, 40, 7, 4)
+
+[node name="Hat" type="Sprite2D" parent="Head"]
+position = Vector2(0, -4)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0.5)
+region_enabled = true
+region_rect = Rect2(27, 30, 11, 7)
+
+[node name="Torso" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, -3)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(3, 17, 13, 10)
+
+[node name="Legs" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-1, 4)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(4, 30, 11, 8)
+
+[node name="Foot1" type="Sprite2D" parent="Legs"]
+z_index = -2
+position = Vector2(-5, 7)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(0, 41, 5, 6)
+
+[node name="Foot2" type="Sprite2D" parent="Legs"]
+z_index = -2
+position = Vector2(5, 7)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, 0)
+region_enabled = true
+region_rect = Rect2(13, 41, 5, 6)
+
+[node name="ArmNeutral" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Arm1" type="Sprite2D" parent="ArmNeutral"]
+z_index = -1
+position = Vector2(-6, -4)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(25, 20, 2, 6)
+
+[node name="Hand1" type="Sprite2D" parent="ArmNeutral/Arm1"]
+z_index = 2
+position = Vector2(-1, 7)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0.5, -2.5)
+region_enabled = true
+region_rect = Rect2(25, 7, 3, 5)
+
+[node name="Gun" type="Sprite2D" parent="ArmNeutral/Arm1"]
+z_index = 2
+position = Vector2(7, 5)
+rotation = -1.5708
+texture = ExtResource("2_x7g7r")
+region_enabled = true
+region_rect = Rect2(53, 1, 10, 32)
+
+[node name="Arm2" type="Sprite2D" parent="ArmNeutral"]
+z_index = -1
+position = Vector2(5, -4)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(34, 20, 2, 6)
+
+[node name="Hand2" type="Sprite2D" parent="ArmNeutral/Arm2"]
+z_index = 1
+position = Vector2(3, 4)
+rotation = 4.71239
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, -2)
+region_enabled = true
+region_rect = Rect2(34, 7, 4, 4)
+
+[node name="ArmAttack" type="Node2D" parent="."]
+
+[node name="Arm1" type="Sprite2D" parent="ArmAttack"]
+z_index = -1
+position = Vector2(-6, -4)
+scale = Vector2(1, 1)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(25, 20, 2, 6)
+
+[node name="Arm2" type="Sprite2D" parent="ArmAttack"]
+z_index = -1
+position = Vector2(5, -4)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(34, 20, 2, 6)
+
+[node name="GunHolding" type="Node2D" parent="ArmAttack"]
+
+[node name="Hand1" type="Sprite2D" parent="ArmAttack/GunHolding"]
+z_index = 2
+position = Vector2(-0.499994, 1.25)
+rotation = -1.5708
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, -2)
+region_enabled = true
+region_rect = Rect2(25, 7, 3, 5)
+
+[node name="Hand2" type="Sprite2D" parent="ArmAttack/GunHolding"]
+z_index = 2
+position = Vector2(5.50001, 2.25)
+texture = ExtResource("2_x7g7r")
+offset = Vector2(0, -2)
+region_enabled = true
+region_rect = Rect2(34, 7, 4, 4)
+
+[node name="Gun" type="Sprite2D" parent="ArmAttack/GunHolding"]
+z_index = 2
+position = Vector2(6.50001, 0.25)
+rotation = -1.5708
+texture = ExtResource("2_x7g7r")
+region_enabled = true
+region_rect = Rect2(45, 5, 3, 27)
+
+[node name="MuzzleFlash" type="Polygon2D" parent="ArmAttack/GunHolding"]
+z_index = 2
+position = Vector2(-10.5, 0.25)
+scale = Vector2(1.25, 1.25)
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(14, -5, 15, -1, 19, 0, 15, 1, 14, 5, 13, 1, 9, 0, 13, -1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

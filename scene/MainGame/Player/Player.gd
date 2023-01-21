@@ -43,8 +43,7 @@ func _process(delta):
 			if stats.Bullets > 0:
 				$PlayerAim/AnimationPlayer.play("AimIn")
 			else:
-				# case for playing click audio goes here
-				pass
+				$SFX/ReloadMax.play()
 			$Reload.stop()
 		if Input.is_action_just_released("ingame_fire") and stats.Bullets > 0:
 			var new_bullet = bullet.instantiate()
@@ -52,6 +51,8 @@ func _process(delta):
 			new_bullet.angle = Global.angle+PI
 			get_parent().add_child(new_bullet)
 			emit_signal("bullet_shot")
+			$SFX/Fire.pitch_scale = randf_range(0.95,1.05)
+			$SFX/Fire.play()
 			$PlayerAim/AnimationPlayer.play("Restore")
 		if Input.is_action_just_pressed("ingame_reload") and velocity == Vector2.ZERO and $Reload.is_stopped():
 			$Reload.start(0.2)
@@ -103,9 +104,11 @@ func _on_invulnerability_timeout() -> void:
 func _on_reload_timeout():
 	if stats.Bullets < 6:
 		emit_signal("bullet_reload")
+		$SFX/Reload.play()
 	if Input.is_action_pressed("ingame_reload") and velocity == Vector2.ZERO and stats.Bullets < 6:
 		$Reload.start(0.2)
 	else:
+		$SFX/ReloadMax.play()
 		$Reload.stop()
 
 

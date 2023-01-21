@@ -63,6 +63,7 @@ func handle_state(current_state: Status) -> void:
 		Status.INIT:
 			init_state(Status.ATTACK)
 		Status.ATTACK:
+			Audio.play_rifle()
 			create_pattern(0)
 			current_shot_count += 1
 			if current_shot_count >= shot_count:

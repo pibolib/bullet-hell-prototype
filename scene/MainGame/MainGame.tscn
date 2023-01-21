@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbankv6chbgtq"]
+[gd_scene load_steps=13 format=3 uid="uid://bbankv6chbgtq"]
 
 [ext_resource type="PackedScene" uid="uid://yidhqdd4gy23" path="res://scene/MainGame/Player/Player.tscn" id="1_7b386"]
 [ext_resource type="Script" path="res://scene/MainGame/MainGame.gd" id="1_7ctrp"]
 [ext_resource type="PackedScene" uid="uid://crw72237c1kfw" path="res://scene/UI/Ingame/IngameUI.tscn" id="4_um8oa"]
 [ext_resource type="PackedScene" uid="uid://bqni3347iibgv" path="res://scene/MainGame/Wave/Wave.tscn" id="4_yk3dx"]
+[ext_resource type="PackedScene" uid="uid://cygr3nae60mhh" path="res://scene/MainGame/Enemy/Boss1.tscn" id="5_7yie3"]
+[ext_resource type="PackedScene" uid="uid://dxuyp8xyc1p3p" path="res://scene/MainGame/Enemy/AttackDroneEnemy.tscn" id="5_av7wv"]
 [ext_resource type="PackedScene" uid="uid://3u8vfontbd5g" path="res://scene/MainGame/Enemy/BasicSniperEnemy.tscn" id="5_uhswc"]
+[ext_resource type="PackedScene" uid="uid://dp7tcnjn568t8" path="res://scene/MainGame/Enemy/BasicStationaryEnemy.tscn" id="5_w1y15"]
+[ext_resource type="PackedScene" uid="uid://bja48msye6efj" path="res://scene/MainGame/Enemy/BasicRifleEnemy.tscn" id="6_me2e2"]
 [ext_resource type="PackedScene" uid="uid://c0sid4hykutks" path="res://scene/MainGame/Enemy/BasicShotgunEnemy.tscn" id="6_vof4w"]
+[ext_resource type="PackedScene" uid="uid://ci2bg6lkvi5t" path="res://scene/MainGame/Background/Background.tscn" id="7_11d1m"]
+[ext_resource type="PackedScene" uid="uid://ivs6ievg5db5" path="res://scene/MainGame/EnemyPattern/EnemyPatternBasicShot.tscn" id="10_s6mm2"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_7ctrp")
@@ -29,48 +35,286 @@ metadata/_edit_lock_ = true
 
 [node name="Wave1" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 375)
+wave_minimum_time = 15
 
-[node name="BasicSniperEnemy" parent="Wave1" instance=ExtResource("5_uhswc")]
-position = Vector2(145, 41)
-
-[node name="BasicSniperEnemy2" parent="Wave1" instance=ExtResource("5_uhswc")]
-position = Vector2(212, 65)
-spawn_delay = 1.5
-
-[node name="BasicSniperEnemy3" parent="Wave1" instance=ExtResource("5_uhswc")]
-position = Vector2(75, 65)
-spawn_delay = 1.5
-
-[node name="BasicSniperEnemy4" parent="Wave1" instance=ExtResource("5_uhswc")]
-position = Vector2(52, 123)
+[node name="BasicStationaryEnemy" parent="Wave1" instance=ExtResource("5_w1y15")]
+position = Vector2(46, 95)
 entry_dir = 2
-spawn_delay = 2.0
 
-[node name="BasicSniperEnemy5" parent="Wave1" instance=ExtResource("5_uhswc")]
-position = Vector2(246, 124)
+[node name="BasicStationaryEnemy2" parent="Wave1" instance=ExtResource("5_w1y15")]
+position = Vector2(147, 56)
+spawn_delay = 1.5
+
+[node name="BasicStationaryEnemy3" parent="Wave1" instance=ExtResource("5_w1y15")]
+position = Vector2(246, 92)
 entry_dir = 3
 spawn_delay = 2.0
 
+[node name="BasicRifleEnemy" parent="Wave1" instance=ExtResource("6_me2e2")]
+position = Vector2(-18, 149)
+spawn_delay = 5.0
+
+[node name="BasicRifleEnemy2" parent="Wave1" instance=ExtResource("6_me2e2")]
+position = Vector2(-18, 149)
+spawn_delay = 6.0
+
+[node name="BasicRifleEnemy3" parent="Wave1" instance=ExtResource("6_me2e2")]
+position = Vector2(-18, 149)
+spawn_delay = 7.0
+
+[node name="BasicRifleEnemy4" parent="Wave1" instance=ExtResource("6_me2e2")]
+position = Vector2(316, 180)
+move_direction = 1
+spawn_delay = 4.0
+
+[node name="BasicRifleEnemy5" parent="Wave1" instance=ExtResource("6_me2e2")]
+position = Vector2(316, 180)
+move_direction = 1
+spawn_delay = 5.0
+
+[node name="BasicRifleEnemy6" parent="Wave1" instance=ExtResource("6_me2e2")]
+position = Vector2(316, 180)
+move_direction = 1
+spawn_delay = 6.0
+
 [node name="Wave2" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 754)
+wave_minimum_time = 15
+
+[node name="AttackDroneEnemy" parent="Wave2" instance=ExtResource("5_av7wv")]
+position = Vector2(95, 49)
+
+[node name="AttackDroneEnemy2" parent="Wave2" instance=ExtResource("5_av7wv")]
+position = Vector2(197, 49)
+
+[node name="BasicStationaryEnemy" parent="Wave2" instance=ExtResource("5_w1y15")]
+position = Vector2(51, 108)
+entry_dir = 2
+spawn_delay = 1.5
+
+[node name="BasicStationaryEnemy2" parent="Wave2" instance=ExtResource("5_w1y15")]
+position = Vector2(244, 109)
+entry_dir = 3
+spawn_delay = 1.5
 
 [node name="BasicShotgunEnemy" parent="Wave2" instance=ExtResource("6_vof4w")]
-position = Vector2(39, -23)
+position = Vector2(74, -23)
+spawn_delay = 3.0
 
 [node name="BasicShotgunEnemy2" parent="Wave2" instance=ExtResource("6_vof4w")]
-position = Vector2(144, -25)
+position = Vector2(148, -21)
+spawn_delay = 4.0
 
 [node name="BasicShotgunEnemy3" parent="Wave2" instance=ExtResource("6_vof4w")]
-position = Vector2(253, -24)
+position = Vector2(220, -22)
+spawn_delay = 3.0
 
-[node name="BasicShotgunEnemy4" parent="Wave2" instance=ExtResource("6_vof4w")]
-position = Vector2(-24, 42)
+[node name="Wave3" parent="." instance=ExtResource("4_yk3dx")]
+position = Vector2(3, 1163)
+wave_minimum_time = 10
+
+[node name="BasicSniperEnemy" parent="Wave3" instance=ExtResource("5_uhswc")]
+position = Vector2(109, 34)
+entry_dir = 2
+
+[node name="BasicSniperEnemy2" parent="Wave3" instance=ExtResource("5_uhswc")]
+position = Vector2(176, 34)
+entry_dir = 3
+
+[node name="BasicShotgunEnemy" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(23, -24)
+spawn_delay = 3.0
+
+[node name="BasicShotgunEnemy2" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(69, -23)
+spawn_delay = 3.0
+
+[node name="BasicShotgunEnemy3" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(116, -24)
+spawn_delay = 3.0
+
+[node name="BasicShotgunEnemy4" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(164, -24)
+spawn_delay = 3.0
+
+[node name="BasicShotgunEnemy5" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(210, -24)
+spawn_delay = 3.0
+
+[node name="BasicShotgunEnemy6" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(254, -23)
+spawn_delay = 3.0
+
+[node name="BasicShotgunEnemy7" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(46, -24)
 spawn_delay = 2.0
 
-[node name="BasicShotgunEnemy5" parent="Wave2" instance=ExtResource("6_vof4w")]
-position = Vector2(323, 43)
+[node name="BasicShotgunEnemy8" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(92, -23)
 spawn_delay = 2.0
+
+[node name="BasicShotgunEnemy9" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(139, -24)
+spawn_delay = 2.0
+
+[node name="BasicShotgunEnemy10" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(187, -24)
+spawn_delay = 2.0
+
+[node name="BasicShotgunEnemy11" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(233, -24)
+spawn_delay = 2.0
+
+[node name="BasicShotgunEnemy12" parent="Wave3" instance=ExtResource("6_vof4w")]
+position = Vector2(277, -23)
+spawn_delay = 2.0
+
+[node name="Wave4" parent="." instance=ExtResource("4_yk3dx")]
+position = Vector2(2, 1557)
+wave_minimum_time = 12
+
+[node name="AttackDroneEnemy" parent="Wave4" instance=ExtResource("5_av7wv")]
+position = Vector2(79, 32)
+entry_dir = 2
+shot_count = 10
+spawn_delay = 3.0
+
+[node name="AttackDroneEnemy2" parent="Wave4" instance=ExtResource("5_av7wv")]
+position = Vector2(109, 77)
+entry_dir = 2
+shot_count = 10
+spawn_delay = 2.0
+
+[node name="AttackDroneEnemy3" parent="Wave4" instance=ExtResource("5_av7wv")]
+position = Vector2(195, 76)
+entry_dir = 3
+shot_count = 10
+spawn_delay = 2.0
+
+[node name="AttackDroneEnemy5" parent="Wave4" instance=ExtResource("5_av7wv")]
+position = Vector2(153, 107)
+shot_count = 10
+
+[node name="AttackDroneEnemy4" parent="Wave4" instance=ExtResource("5_av7wv")]
+position = Vector2(223, 35)
+entry_dir = 3
+shot_count = 10
+spawn_delay = 3.0
+
+[node name="BasicSniperEnemy" parent="Wave4" instance=ExtResource("5_uhswc")]
+position = Vector2(152, 36)
+spawn_delay = 4.0
+
+[node name="BasicSniperEnemy2" parent="Wave4" instance=ExtResource("5_uhswc")]
+position = Vector2(56, 117)
+entry_dir = 2
+spawn_delay = 4.0
+
+[node name="BasicSniperEnemy3" parent="Wave4" instance=ExtResource("5_uhswc")]
+position = Vector2(246, 116)
+entry_dir = 3
+spawn_delay = 4.0
+
+[node name="Wave5" parent="." instance=ExtResource("4_yk3dx")]
+position = Vector2(1, 1942)
+wave_minimum_time = 20
+
+[node name="BasicShotgunEnemy" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(-26, 81)
+repel_distance = 200.0
+charge_speed = 150.0
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy2" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(-26, 81)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 1.25
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy3" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(-26, 81)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 1.5
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy4" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(-26, 81)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 1.75
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy5" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(-26, 81)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 2.0
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy6" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(-26, 81)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 2.25
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy7" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(325, 83)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 2.5
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy8" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(325, 83)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 2.75
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy9" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(325, 83)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 3.0
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy10" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(325, 83)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 3.25
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy11" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(325, 83)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 3.5
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicShotgunEnemy12" parent="Wave5" instance=ExtResource("6_vof4w")]
+position = Vector2(325, 83)
+repel_distance = 200.0
+charge_speed = 150.0
+spawn_delay = 3.75
+patterns_overwrite = [ExtResource("10_s6mm2")]
+
+[node name="BasicSniperEnemy" parent="Wave5" instance=ExtResource("5_uhswc")]
+position = Vector2(139, 26)
+spawn_delay = 4.0
+
+[node name="Wave6" parent="." instance=ExtResource("4_yk3dx")]
+position = Vector2(2, 2332)
+wave_minimum_time = 50
+
+[node name="Boss1" parent="Wave6" instance=ExtResource("5_7yie3")]
+position = Vector2(146, 72)
 
 [node name="WaveTimer" type="Timer" parent="."]
+
+[node name="Background" parent="." instance=ExtResource("7_11d1m")]
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

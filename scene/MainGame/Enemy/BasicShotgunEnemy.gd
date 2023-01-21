@@ -2,7 +2,7 @@ extends Enemy
 class_name BasicShotgunEnemy
 
 var velocity: Vector2 = Vector2(0,0)
-@export_range(60,120,1,"or_greater") var repel_distance: float = 60
+@export_range(60,120,1,"or_greater") var repel_distance: float = 100
 @export_range(60,250,1) var charge_speed: float = 60
 var repel = false
 func _ready():
@@ -25,6 +25,7 @@ func handle_state(current_state: Status) -> void:
 		Status.INIT:
 			init_state(Status.ATTACK)
 		Status.LEAVE:
+			Audio.play_shotgun()
 			create_pattern(0)
 func init_state(new_state: Status) -> void:
 	super(new_state)
