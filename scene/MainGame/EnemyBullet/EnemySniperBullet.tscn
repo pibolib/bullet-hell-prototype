@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/MainGame/EnemyBullet/EnemySniperBullet.gd" id="1_erem5"]
 
-[sub_resource type="Animation" id="Animation_81f5q"]
+[sub_resource type="Animation" id="Animation_fjqtp"]
 resource_name = "Life"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -43,7 +43,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_j7w3q"]
+[sub_resource type="Animation" id="Animation_sryko"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,10 +70,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pia5r"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_typxo"]
 _data = {
-"Life": SubResource("Animation_81f5q"),
-"RESET": SubResource("Animation_j7w3q")
+"Life": SubResource("Animation_fjqtp"),
+"RESET": SubResource("Animation_sryko")
 }
 
 [node name="EnemySniperBullet" type="Node2D"]
@@ -91,5 +91,5 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pia5r")
+"": SubResource("AnimationLibrary_typxo")
 }

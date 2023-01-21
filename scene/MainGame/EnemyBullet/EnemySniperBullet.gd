@@ -16,5 +16,5 @@ func _ready():
 	var collider = $RayCast2D.get_collider()
 	if collider != null:
 		collision_point = $RayCast2D.get_collision_point()
-		if(collider.hitscan_hit()):
+		if(collider.hitscan_hit(collision_point)):
 			$Visual.points = [start_point,collider.position-position]
