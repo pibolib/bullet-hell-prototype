@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsriw8exusca"]
+[gd_scene load_steps=11 format=3 uid="uid://dsriw8exusca"]
 
 [ext_resource type="Script" path="res://scene/Global/BGM.gd" id="1_6y82r"]
 [ext_resource type="AudioStream" uid="uid://pwswj8h1lgmy" path="res://assets/sfx/pistol_rifle.wav" id="2_qjnrd"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bndr2besxucyr" path="res://assets/sfx/sniper.wav" id="5_d1qkw"]
 [ext_resource type="AudioStream" uid="uid://di76r48duyr7n" path="res://assets/sfx/explosion.wav" id="6_bkcjv"]
 [ext_resource type="AudioStream" uid="uid://4jcmp642osyg" path="res://assets/sfx/dodge.wav" id="7_b7rie"]
+[ext_resource type="AudioStream" uid="uid://cj7y1qdsvytyv" path="res://assets/sfx/graze.wav" id="8_j3tdb"]
 
 [sub_resource type="Animation" id="Animation_meni6"]
 resource_name = "Fadeout"
@@ -68,5 +69,10 @@ bus = &"SFX"
 
 [node name="Dodge" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_b7rie")
+volume_db = -3.234
+bus = &"SFX"
+
+[node name="Graze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j3tdb")
 volume_db = -3.234
 bus = &"SFX"

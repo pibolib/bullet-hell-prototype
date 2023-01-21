@@ -52,4 +52,5 @@ func play_explosion() -> void:
 	$Explosion.play()
 func play_dodge() -> void:
 	$Dodge.play()
-	
+func play_graze() -> void:
+	$Graze.play()

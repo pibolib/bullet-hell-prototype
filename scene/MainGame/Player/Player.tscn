@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yidhqdd4gy23"]
+[gd_scene load_steps=17 format=3 uid="uid://yidhqdd4gy23"]
 
 [ext_resource type="Script" path="res://scene/MainGame/Player/Player.gd" id="1_2kmp1"]
 [ext_resource type="Texture2D" uid="uid://dkoonkl0w1pib" path="res://assets/mc_sprite.png" id="2_48cg2"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ceatw5djvwihn" path="res://assets/sfx/gun_reload.wav" id="4_l0dc1"]
 [ext_resource type="AudioStream" uid="uid://drddnj7lba00e" path="res://assets/sfx/gun_reload_max.wav" id="5_47jso"]
 [ext_resource type="AudioStream" uid="uid://c3fw322faj1or" path="res://assets/sfx/revolver_fire.wav" id="6_3tltx"]
+[ext_resource type="AudioStream" uid="uid://sy1swj0ebk7j" path="res://assets/sfx/player_hurt.wav" id="7_ofdag"]
 
 [sub_resource type="Animation" id="Animation_6h6p3"]
 resource_name = "Death"
@@ -412,6 +413,10 @@ bus = &"SFX"
 
 [node name="Fire" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("6_3tltx")
+bus = &"SFX"
+
+[node name="PlayerHurt" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_ofdag")
 bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_hitbox_area_entered"]
