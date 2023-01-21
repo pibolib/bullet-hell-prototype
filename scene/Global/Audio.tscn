@@ -26,7 +26,8 @@ _data = {
 script = ExtResource("1_6y82r")
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -15.826
+volume_db = -40.0
+bus = &"BGM"
 
 [node name="Mixer" type="AnimationPlayer" parent="."]
 libraries = {

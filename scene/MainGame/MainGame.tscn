@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbankv6chbgtq"]
+[gd_scene load_steps=8 format=3 uid="uid://bbankv6chbgtq"]
 
 [ext_resource type="PackedScene" uid="uid://yidhqdd4gy23" path="res://scene/MainGame/Player/Player.tscn" id="1_7b386"]
 [ext_resource type="Script" path="res://scene/MainGame/MainGame.gd" id="1_7ctrp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqni3347iibgv" path="res://scene/MainGame/Wave/Wave.tscn" id="4_yk3dx"]
 [ext_resource type="PackedScene" uid="uid://3u8vfontbd5g" path="res://scene/MainGame/Enemy/BasicSniperEnemy.tscn" id="5_uhswc"]
 [ext_resource type="PackedScene" uid="uid://c0sid4hykutks" path="res://scene/MainGame/Enemy/BasicShotgunEnemy.tscn" id="6_vof4w"]
+[ext_resource type="PackedScene" uid="uid://ci2bg6lkvi5t" path="res://scene/MainGame/Background/Background.tscn" id="7_11d1m"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_7ctrp")
@@ -29,6 +30,7 @@ metadata/_edit_lock_ = true
 
 [node name="Wave1" parent="." instance=ExtResource("4_yk3dx")]
 position = Vector2(1, 375)
+wave_minimum_time = 15
 
 [node name="BasicSniperEnemy" parent="Wave1" instance=ExtResource("5_uhswc")]
 position = Vector2(145, 41)
@@ -72,5 +74,7 @@ position = Vector2(323, 43)
 spawn_delay = 2.0
 
 [node name="WaveTimer" type="Timer" parent="."]
+
+[node name="Background" parent="." instance=ExtResource("7_11d1m")]
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
