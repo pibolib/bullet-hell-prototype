@@ -54,3 +54,5 @@ func play_dodge() -> void:
 	$Dodge.play()
 func play_graze() -> void:
 	$Graze.play()
+func play_score() -> void:
+	$ScoreUp.play()
