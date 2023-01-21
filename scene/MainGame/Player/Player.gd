@@ -40,6 +40,7 @@ func _process(delta):
 		else:
 			# case for playing click audio goes here
 			pass
+		$Reload.stop()
 	if Input.is_action_just_released("ingame_fire") and stats.Bullets > 0:
 		var new_bullet = bullet.instantiate()
 		new_bullet.start_point = $Sprite/Arm1/Hand1/Gun/BulletSpawn.global_position
@@ -47,15 +48,16 @@ func _process(delta):
 		get_parent().add_child(new_bullet)
 		emit_signal("bullet_shot")
 		$PlayerAim/AnimationPlayer.play("Restore")
-		$Reload.stop()
-	if Input.is_action_just_pressed("ingame_focus"):
-		$Reload.start(0.5)
-	if Input.is_action_just_released("ingame_focus"):
-		$Reload.stop()
+	if Input.is_action_just_pressed("ingame_reload") and velocity == Vector2.ZERO and $Reload.is_stopped():
+		$Reload.start(0.2)
+	if $PlayerAim/AnimationPlayer.current_animation == "AimIn":
+		$PlayerAim/AnimationPlayer.playback_speed = 1 + float(Input.is_action_pressed("ingame_focus"))
+	else:
+		$PlayerAim/AnimationPlayer.playback_speed = 1
 	speed_multiplier = 1 - 0.5*float(Input.is_action_pressed("ingame_focus"))
 	position += velocity * delta
 	Global.player_pos = position
-	velocity = lerp(velocity,Vector2(0,0),FRICTION_RATE*delta)
+	velocity = Vector2.ZERO
 	position.x = clamp(position.x,0,300)
 	position.y = clamp(position.y,0,350)
 	$PlayerAim/Indicator.rotation = -Global.angle
@@ -84,4 +86,7 @@ func _on_invulnerability_timeout() -> void:
 func _on_reload_timeout():
 	if stats.Bullets < 6:
 		emit_signal("bullet_reload")
-		$Reload.start(0.5)
+	if Input.is_action_pressed("ingame_reload") and velocity == Vector2.ZERO and stats.Bullets < 6:
+		$Reload.start(0.2)
+	else:
+		$Reload.stop()
