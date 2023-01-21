@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfeddqdjbi6en"]
+[gd_scene load_steps=5 format=3 uid="uid://bgc1kijpm3iig"]
 
-[ext_resource type="Texture2D" uid="uid://c7jexk31a040q" path="res://assets/enemy_bullet_small.png" id="1_74sc0"]
-[ext_resource type="Script" path="res://scene/MainGame/EnemyBullet/EnemyBullet.gd" id="1_gvp5n"]
+[ext_resource type="Script" path="res://scene/MainGame/EnemyBullet/EnemyBulletRotating.gd" id="1_diefg"]
+[ext_resource type="Texture2D" uid="uid://c7jexk31a040q" path="res://assets/enemy_bullet_small.png" id="2_uaaue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjdte"]
 radius = 2.0
@@ -13,10 +13,10 @@ radius = 12.0
 z_index = 30
 collision_layer = 8
 collision_mask = 3
-script = ExtResource("1_gvp5n")
+script = ExtResource("1_diefg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_74sc0")
+texture = ExtResource("2_uaaue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gjdte")

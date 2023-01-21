@@ -99,16 +99,22 @@ layer_1/tile_data = PackedInt32Array(-1966080, 65536, 3, -262144, 0, 3, -196608,
 position = Vector2(151, 324)
 
 [node name="Wave1" type="Marker2D" parent="."]
-position = Vector2(149, 127)
+position = Vector2(153, 201)
 
 [node name="Wave2" type="Marker2D" parent="."]
-position = Vector2(151, -91)
+position = Vector2(149, 24)
 
 [node name="Wave3" type="Marker2D" parent="."]
-position = Vector2(152, -277)
+position = Vector2(154, -127)
 
 [node name="Wave4" type="Marker2D" parent="."]
-position = Vector2(149, -441)
+position = Vector2(151, -257)
+
+[node name="Wave5" type="Marker2D" parent="."]
+position = Vector2(152, -325)
+
+[node name="Wave6" type="Marker2D" parent="."]
+position = Vector2(152, -325)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0

@@ -6,7 +6,8 @@ enum Status {
 	PRE_INIT,
 	INIT,
 	ATTACK,
-	LEAVE
+	LEAVE,
+	READY
 }
 
 signal enemy_died

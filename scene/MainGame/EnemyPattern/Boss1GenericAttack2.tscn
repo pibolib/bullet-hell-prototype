@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://oxa5pqpu756r"]
+
+[ext_resource type="Script" path="res://scene/MainGame/EnemyPattern/Boss1GenericAttack2.gd" id="1_47iby"]
+
+[sub_resource type="Animation" id="Animation_3mihk"]
+resource_name = "Life"
+length = 1.05
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"shoot_rotating_spiral"
+}, {
+"args": [1],
+"method": &"shoot_rotating_spiral"
+}, {
+"args": [2],
+"method": &"shoot_rotating_spiral"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohi8g"]
+_data = {
+"Life": SubResource("Animation_3mihk")
+}
+
+[node name="EnemyPattern" type="Node2D"]
+script = ExtResource("1_47iby")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ohi8g")
+}

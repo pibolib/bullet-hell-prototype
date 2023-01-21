@@ -2,7 +2,7 @@ extends Enemy
 class_name BasicShotgunEnemy
 
 var velocity: Vector2 = Vector2(0,0)
-@export_range(60,120,1,"or_greater") var repel_distance: float = 60
+@export_range(60,120,1,"or_greater") var repel_distance: float = 100
 @export_range(60,250,1) var charge_speed: float = 60
 var repel = false
 func _ready():

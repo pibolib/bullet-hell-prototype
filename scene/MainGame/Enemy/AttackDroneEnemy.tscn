@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxuyp8xyc1p3p"]
 
 [ext_resource type="Script" path="res://scene/MainGame/Enemy/AttackDroneEnemy.gd" id="1_oniw1"]
-[ext_resource type="PackedScene" uid="uid://drbgukuhhh810" path="res://scene/MainGame/Enemy/EnemyModel/BasicRifleEnemyModel.tscn" id="2_jpb5f"]
+[ext_resource type="PackedScene" uid="uid://bopp2fsho3ybu" path="res://scene/MainGame/Enemy/EnemyModel/AttackDroneModel.tscn" id="2_f5wwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bafq3"]
-radius = 20.0
+radius = 16.0
 
 [node name="AttackDroneEnemy" type="Area2D"]
 collision_layer = 4
@@ -14,4 +14,4 @@ script = ExtResource("1_oniw1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bafq3")
 
-[node name="Model" parent="." instance=ExtResource("2_jpb5f")]
+[node name="Model" parent="." instance=ExtResource("2_f5wwd")]

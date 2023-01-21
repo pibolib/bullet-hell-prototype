@@ -9,7 +9,7 @@ enum EntryDirections {
 }
 
 @export_enum("From Top","From Bottom","From Left","From Right") var entry_dir: int = EntryDirections.FROM_TOP
-@export_range(3,10,1) var shot_count: int = 3
+@export_range(1,10,1) var shot_count: int = 3
 var current_shot_count = 0
 var target_pos = Vector2(0,0)
 var lerp_speed = 10
@@ -56,15 +56,15 @@ func init_state(new_state: Status) -> void:
 		Status.LEAVE:
 			$Model.set_anim("Idle")
 			lerp_speed = 1
-			match entry_dir:
-				EntryDirections.FROM_TOP:
-					target_pos.y = -101
-				EntryDirections.FROM_BOTTOM:
-					target_pos.y = 451
-				EntryDirections.FROM_LEFT:
-					target_pos.x = -101
-				EntryDirections.FROM_RIGHT:
-					target_pos.x = 401
+#			match entry_dir:
+#				EntryDirections.FROM_TOP:
+#					target_pos.y = -101
+#				EntryDirections.FROM_BOTTOM:
+#					target_pos.y = 451
+#				EntryDirections.FROM_LEFT:
+#					target_pos.x = -101
+#				EntryDirections.FROM_RIGHT:
+#					target_pos.x = 401
 
 func handle_state(current_state: Status) -> void:
 	super(current_state)

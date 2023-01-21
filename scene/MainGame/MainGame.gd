@@ -26,7 +26,7 @@ func _process(delta):
 	if current_wave_enemy_count > 0:
 		current_camera_position = lerp(wave_start_position, current_camera_target, ease(1-$WaveTimer.time_left/current_wave_time,-1.4))
 	else:
-		current_camera_position = lerp(current_camera_position, current_camera_target, delta)
+		current_camera_position = lerp(current_camera_position, current_camera_target, delta*2)
 
 func update_camera_shake(amount: float) -> void:
 	camerashake = clamp(camerashake-amount*30,0,20)

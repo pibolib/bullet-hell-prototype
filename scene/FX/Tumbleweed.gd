@@ -6,6 +6,7 @@ var time: float = 0
 func _ready():
 	velocity = randf_range(40,70)
 	$Tumbleweed.rotation = randf_range(PI,4*PI)
+	time = randf_range(0,5)
 	
 func _process(delta):
 	position.x += velocity * delta
